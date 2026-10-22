@@ -37,9 +37,25 @@ fi
 
 MODEL_ROOT="${GATE3DGEN_UPSTREAM_ROOT:-$ROOT/checkpoints/upstream}"
 if [[ "${GATE3DGEN_SKIP_UPSTREAM_DOWNLOAD:-0}" != "1" ]]; then
-  conda run --name "$ENV_NAME" python setup/download_models.py all --output-root "$MODEL_ROOT"
+  if [[ -n "${GATE3DGEN_MODEL_PATH:-}" ]]; then
+    conda run --name "$ENV_NAME" python setup/download_models.py pixal3d --output-root "$MODEL_ROOT"
+  else
+    conda run --name "$ENV_NAME" python setup/download_models.py all --output-root "$MODEL_ROOT"
+  fi
 fi
+
+# Materialize complete inference weights from the published replacement tensors.
+WEIGHT_ARGS=(--output-root "${GATE3DGEN_CHECKPOINT_ROOT:-$ROOT/checkpoints}")
+if [[ -n "${GATE3DGEN_MODEL_PATH:-}" ]]; then
+  WEIGHT_ARGS+=(--firered "$GATE3DGEN_MODEL_PATH")
+elif [[ "${GATE3DGEN_SKIP_UPSTREAM_DOWNLOAD:-0}" != "1" ]]; then
+  WEIGHT_ARGS+=(--firered "$MODEL_ROOT/FireRed-Image-Edit-1.1")
+fi
+if [[ -n "${GATE3DGEN_RELEASE_DIR:-}" ]]; then
+  WEIGHT_ARGS+=(--release-dir "$GATE3DGEN_RELEASE_DIR")
+fi
+conda run --name "$ENV_NAME" python setup/download_weights.py "${WEIGHT_ARGS[@]}"
 
 echo "Setup complete. Activate it with: conda activate $ENV_NAME"
 echo "Official models: $MODEL_ROOT"
-echo "Gate3DGen inference weights: python setup/download_weights.py"
+echo "Gate3DGen inference weights: ${GATE3DGEN_CHECKPOINT_ROOT:-$ROOT/checkpoints}"

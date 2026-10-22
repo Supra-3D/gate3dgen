@@ -9,6 +9,7 @@ MODELS = {
     "firered": ("FireRedTeam/FireRed-Image-Edit-1.1", "FireRed-Image-Edit-1.1"),
     "pixal3d": ("TencentARC/Pixal3D", "Pixal3D"),
 }
+FIRERED_REVISION = "3bc3f2a12722fd9883eb6357500de191d56baaf5"
 
 
 def main(argv=None):
@@ -23,7 +24,8 @@ def main(argv=None):
     from huggingface_hub import snapshot_download
     for key in MODELS if args.model == "all" else (args.model,):
         repo, folder = MODELS[key]
-        snapshot_download(repo_id=repo, local_dir=destination / folder)
+        options = {"revision": FIRERED_REVISION, "token": False} if key == "firered" else {}
+        snapshot_download(repo_id=repo, local_dir=destination / folder, **options)
         print(f"{key}: {destination / folder}")
     return 0
 
