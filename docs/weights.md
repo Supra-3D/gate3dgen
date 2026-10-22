@@ -79,6 +79,33 @@ and its
 Upstream revisions may change these defaults; tested access revisions are recorded
 in the JSON access report. Public mirrors are not a replacement for upstream licenses.
 
+### Optional data, audit and comparison workflows
+
+These links cover additional model families referenced by the source code. They
+are not needed for the core router/purifier. The entries below were checked with
+anonymous HF **metadata only**; their model tensors were not downloaded or range-probed.
+
+| Component | Weight link | Use and access result |
+| --- | --- | --- |
+| Qwen image editor | [Qwen/Qwen-Image-Edit-2511](https://huggingface.co/Qwen/Qwen-Image-Edit-2511) | Optional pair-synthesis editor; public, no gate |
+| Earlier FireRed | [FireRedTeam/FireRed-Image-Edit-1.0](https://huggingface.co/FireRedTeam/FireRed-Image-Edit-1.0) | Legacy synthesis option; public, no gate |
+| Qwen audit VLM | [Qwen/Qwen3-VL-32B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-32B-Instruct) | Local/served dataset-review VLM; public, no gate |
+| DINOv2 audit backbone | [facebook/dinov2-base](https://huggingface.co/facebook/dinov2-base) | Audit uses a local native `dinov2_vitb14` checkpoint; public HF model reference, no gate |
+| DINOv2 with registers | [facebook/dinov2-with-registers-large](https://huggingface.co/facebook/dinov2-with-registers-large) | Paper FD backbone family; the current paper runner expects native Torch Hub weights, not a Transformers checkpoint interchange |
+| SAM2.1 audit segmenter | [facebook/sam2.1-hiera-small](https://huggingface.co/facebook/sam2.1-hiera-small) | Audit default is native `sam2.1_hiera_small.pt` plus matching SAM2 code/config; public HF model reference, no gate |
+| TRELLIS sparse decoder | [microsoft/TRELLIS-image-large](https://huggingface.co/microsoft/TRELLIS-image-large) | Sparse-decoder dependency referenced by the optional TRELLIS wrapper; public, no gate |
+| Step1X baseline | [stepfun-ai/Step1X-Edit-v1p2](https://huggingface.co/stepfun-ai/Step1X-Edit-v1p2) | Optional comparison; public, no gate |
+| OmniGen2 baseline | [OmniGen2/OmniGen2](https://huggingface.co/OmniGen2/OmniGen2) | Optional comparison; public, no gate |
+| FLUX Kontext baseline | [black-forest-labs/FLUX.1-Kontext-dev](https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev) | Optional comparison; automatic access gate and separate model terms |
+| Mage baseline | [microsoft/Mage-Flow-Edit](https://huggingface.co/microsoft/Mage-Flow-Edit) | Exact repository ID declared by the adapter; anonymous API returned HTTP 401. Availability/access could not be verified; not a confirmed public dependency |
+
+HF links identify the model families; download formats must match each wrapper's
+native loader. For example, the audit's Torch Hub DINO state dict and SAM2 native
+checkpoint must match its specified code/config. The source provides no verified
+automatic conversion from every listed HF format. OpenAI image baselines import
+provider outputs and do not distribute downloadable HF model weights. Optional
+LPIPS/torchvision metric weights follow their upstream package download mechanisms.
+
 ### Pixal3D installation and auxiliary downloads
 
 Follow the [official Pixal3D installation](https://github.com/TencentARC/Pixal3D#installation)
