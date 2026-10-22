@@ -29,7 +29,7 @@
 
 ![Figure 1: 3D generation from observed images and Gate3DGen-purified images](docs/images/figure1_teaser.png)
 
-*Figure 1. The same frozen 3D generator receives the observed image (top) or the purified image (bottom) in each example.*
+*The same frozen 3D generator receives the observed image (top) or the purified image (bottom) in each example.*
 
 **Gate3DGen** selectively purifies real-world images while bypassing inputs
 classified as clean, improving downstream 3D generation without retraining the
