@@ -64,7 +64,7 @@ def test_released_training_config_resolves_inside_repository(monkeypatch) -> Non
 
 def test_large_runtime_artifacts_are_ignored() -> None:
     ignore = (ROOT / ".gitignore").read_text(encoding="utf-8")
-    for entry in ("data/", "outputs/", "checkpoints/*", "third_party/"):
+    for entry in ("data/", "outputs/", "/checkpoints/", "third_party/"):
         assert entry in ignore
 
 
