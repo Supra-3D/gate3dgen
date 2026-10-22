@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Gate3DGen selectively purifies real-world images before frozen single-image 3D generators.">
+  <meta name="theme-color" id="theme-color" content="#f6f8fb">
+  <title>Gate3DGen — Selective Image Purification for 3D Generation</title>
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png?v=2">
+  <link rel="apple-touch-icon" href="assets/favicon.png?v=2">
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('gate3dgen-theme-v2');
+        const initialTheme = savedTheme === 'dark' ? 'dark' : 'light';
+        document.documentElement.dataset.theme = initialTheme;
+        document.querySelector('#theme-color').content = initialTheme === 'light' ? '#f6f8fb' : '#06070a';
+      } catch {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css?v=10-image-loading">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
+  <script src="asset-hosting.js?v=1-huggingface" defer></script>
+  <script src="grouped-cases-20261021.js?v=2-regrouped" defer></script>
+  <script src="gallery-thumbnails.js?v=3-case9-012" defer></script>
+  <script src="media-loading.js?v=2-image-decode" defer></script>
+  <script src="project-case-order.js?v=20261021-swap25-26" defer></script>
+  <script src="comparison-v6.js?v=29-huggingface" defer></script>
+  <script src="responsive-v5.js?v=3" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="site-header">
+    <a class="brand header-brand" href="#top" aria-label="Gate3DGen home">
+      <img class="brand-logo" id="theme-brand-logo" src="assets/figures/gate3dgen-logo-header-dark.png" data-dark-src="assets/figures/gate3dgen-logo-header-light.png" data-light-src="assets/figures/gate3dgen-logo-header-dark.png" width="1860" height="282" alt="Gate3DGen">
+    </a>
+    <div class="header-controls">
+      <nav id="primary-navigation" aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#method">Method</a>
+        <a href="#comparison">Results</a>
+        <a href="#baseline-comparison">Comparison</a>
+        <a href="#citation">Citation</a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme" aria-pressed="true">
+        <span class="theme-toggle-icon" aria-hidden="true">☾</span>
+        <span class="theme-toggle-label">Dark</span>
+      </button>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="menu-toggle-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-aura" aria-hidden="true"></div>
+      <p class="eyebrow">PREPRINT · 2026</p>
+      <h1><span class="title-line"><span class="title-brand">Gate<span class="title-brand-three">3</span><span class="title-brand-d">D</span>Gen</span>: A Pre-processing Model that</span>
+        <span class="title-line">Selectively Purifies Real-World Images for 3D Generation</span></h1>
+      <div class="authors" aria-label="Authors">
+        <span><a href="https://orcid.org/0009-0005-6066-2131" target="_blank" rel="noreferrer">Xiaolin Li</a><sup>1,2*</sup></span><span><a href="https://inso-13.github.io/" target="_blank" rel="noreferrer">Zihao Huang</a><sup>2*</sup></span><span><a href="https://mfp0610.github.io/" target="_blank" rel="noreferrer">Fanpeng Meng</a><sup>2</sup></span><span><a href="https://chensjtu.github.io/" target="_blank" rel="noreferrer">Chen Yang</a><sup>2</sup></span>
+        <span class="author-line-break" aria-hidden="true"></span>
+        <span><a href="https://guanjunwu.github.io/" target="_blank" rel="noreferrer">Guanjun Wu</a><sup>3,2</sup></span><span><a href="https://www.sigs.tsinghua.edu.cn/zk_en/main.htm" target="_blank" rel="noreferrer">Kai Zhang</a><sup>1✉</sup></span><span><a href="https://jaminfong.cn/" target="_blank" rel="noreferrer">Jiemin Fang</a><sup>2‡✉</sup></span><span><a href="https://www.qitian1987.com/" target="_blank" rel="noreferrer">Qi Tian</a><sup>2✉</sup></span>
+      </div>
+      <p class="author-note"><sup>*</sup>Equal Contribution. <sup>‡</sup>Project Lead. <sup>✉</sup>Corresponding Authors.</p>
+      <p class="affiliations"><sup>1</sup>Tsinghua University · <sup>2</sup>Huawei Inc. · <sup>3</sup>Huazhong University of Science and Technology</p>
+      <div class="hero-actions">
+        <span class="button primary disabled" aria-disabled="true">Paper <span aria-hidden="true">↗</span></span>
+        <!-- Future YouTube link: https://youtu.be/qBUKI6XRtPY -->
+        <a class="button" href="#demo-video">Demo Video <span aria-hidden="true">↓</span></a>
+        <a class="button" href="https://supra-3d.github.io/gate3dgen" target="_blank" rel="noreferrer">Code <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="tldr-card">
+        <h2>TL;DR</h2>
+        <p>Gate3DGen selectively purifies real-world images while bypassing inputs classified as clean, improving downstream 3D generation without retraining the 3D generator.</p>
+      </div>
+      <figure class="demo-video-card" id="demo-video">
+        <!-- Future YouTube embed: https://www.youtube.com/embed/qBUKI6XRtPY
+             Replace the video below with an iframe when switching back to YouTube.
+             Use referrerpolicy="strict-origin-when-cross-origin" and allowfullscreen. -->
+        <video controls autoplay muted loop playsinline preload="auto" src="assets/Gate3DGen%20Demo%20Video.mp4?v=796fe862" aria-label="Gate3DGen demo video"></video>
+      </figure>
+      <figure class="hero-figure">
+        <img src="assets/figures/teaser-light.png?v=ce1dab2f" data-dark-src="assets/figures/teaser-dark.png?v=f221a723" data-light-src="assets/figures/teaser-light.png?v=ce1dab2f" alt="Gate3DGen examples comparing 3D generation from observed and selectively purified images">
+        <button class="figure-expand" type="button" data-figure-expand data-figure-src="assets/figures/teaser-light.png?v=ce1dab2f" data-dark-src="assets/figures/teaser-dark.png?v=f221a723" data-light-src="assets/figures/teaser-light.png?v=ce1dab2f" data-figure-alt="Gate3DGen examples comparing 3D generation from observed and selectively purified images">Expand figure</button>
+        <figcaption><strong>Gate3DGen improves 3D generation by purifying real-world image inputs.</strong> Each example compares the same frozen 3D generator conditioned on the observed image (top) and our purified image (bottom). The examples show occlusion removal, illumination correction, and reflection suppression, with reduced extraneous geometry, contour distortions, and surface artifacts.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section overview" id="overview" aria-labelledby="abstract-title">
+      <h2 class="compact-centered-title" id="abstract-title">Abstract</h2>
+      <article class="abstract-card">
+        <p class="abstract-copy">Single-image 3D generation has achieved high fidelity on curated benchmarks, yet degrades sharply on real-world images with uneven illumination, blur, and occlusions. Purifying such inputs requires deciding when to intervene and preserving the visual cues needed for 3D generation. We introduce <strong>Gate3DGen</strong>, a selective pre-processing model that gates image inputs to existing 3D generators without retraining them. A degradation-aware router bypasses inputs classified as clean and extracts features to guide purification of the remaining inputs. Conditioned on these features, a 3D-oriented one-step purifier purifies degraded inputs with spatial losses that encourage preservation of object identity, contours, and textural cues. To provide paired supervision, we construct a synthetic data engine that renders clean views of 3D assets and synthesizes composite degradations. On the synthetic benchmark, the purifier improves image fidelity and downstream 3D geometry, reducing TRELLIS.2 mesh distance by 61.5% relative to degraded inputs. VLM evaluation and human preferences on real photographs further support identity preservation and degradation correction.</p>
+      </article>
+      <figure class="task-video-card" id="task">
+        <video controls autoplay muted loop playsinline preload="auto" aria-label="Gate3DGen task overview video">
+          <source data-hosted-src="assets/task.mp4?v=337e2981" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </figure>
+    </section>
+
+    <section class="section method" id="method" aria-labelledby="method-title">
+      <div class="section-heading">
+        <div><h2 class="compact-centered-title" id="method-title">Method</h2></div>
+      </div>
+      <figure class="paper-figure pipeline-figure">
+        <img src="assets/figures/pipeline-light.svg" data-dark-src="assets/figures/pipeline-dark.svg" data-light-src="assets/figures/pipeline-light.svg" alt="Gate3DGen pipeline with synthetic data engine, degradation-aware router, one-step purifier, and frozen 3D generation">
+        <button class="figure-expand" type="button" data-figure-expand data-figure-src="assets/figures/pipeline-light.svg" data-dark-src="assets/figures/pipeline-dark.svg" data-light-src="assets/figures/pipeline-light.svg" data-figure-alt="Gate3DGen pipeline with synthetic data engine, degradation-aware router, one-step purifier, and frozen 3D generation">Expand pipeline</button>
+        <figcaption><strong>Overview of Gate3DGen.</strong> <strong>(A) Data Engine.</strong> We render 3D assets from multi-view, select informative anchor views, and apply composite degradations to construct aligned observation-reference pairs (<span class="math">x<sup>o</sup>, x<sup>c</sup></span>). <strong>(B) Gate3DGen.</strong> Router <span class="math">𝓡<sub>φ</sub></span> bypasses inputs classified as clean (<span class="math">γ̂ = 0</span>). Otherwise (<span class="math">γ̂ = 1</span>), its features <span class="math">h</span> guide the one-step DiT purifier <span class="math">𝓒<sub>θ</sub></span>. The image <span class="math">x̂<sup>c</sup></span> conditions the frozen 3D generator <span class="math">𝓖</span>, with clean references and spatial losses used only during training.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section comparison comparison-v4 comparison-v5 comparison-v6" id="comparison" aria-labelledby="results-title">
+      <div class="section-heading">
+        <div><h2 class="compact-centered-title" id="results-title">Results</h2></div>
+      </div>
+
+      <section class="comparison-block" id="result-showcase" aria-labelledby="results-title">
+        <div class="compare-toolbar">
+          <div class="control grow case-picker-control">
+            <div class="case-carousel" data-case-carousel>
+              <div class="case-thumbnail-track" id="result-case-controls" role="listbox" aria-label="Select a result by its original image"></div>
+            </div>
+          </div>
+        </div>
+        <div class="media-grid result-media-grid" id="result-media-grid" aria-live="polite"></div>
+      </section>
+    </section>
+
+    <section class="section comparison comparison-v4 comparison-v5 comparison-v6" id="baseline-comparison" aria-labelledby="baseline-comparison-title">
+      <div class="section-heading">
+        <div><h2 class="compact-centered-title" id="baseline-comparison-title">Comparison</h2></div>
+      </div>
+
+      <section class="comparison-block baseline-block" id="baseline-showcase" aria-labelledby="baseline-comparison-title">
+        <div class="compare-toolbar">
+          <div class="control grow case-picker-control">
+            <div class="case-carousel baseline-case-carousel" data-case-carousel>
+              <div class="case-thumbnail-track" id="baseline-case-controls" role="listbox" aria-label="Select a baseline comparison by its original image"></div>
+            </div>
+          </div>
+        </div>
+        <div class="media-grid baseline-media-grid" id="baseline-media-grid" aria-live="polite"></div>
+      </section>
+    </section>
+
+    <section class="section comparison" id="legacy-comparison" hidden inert aria-hidden="true">
+      <div class="section-heading">
+        <div><p class="section-kicker">Legacy comparison</p><h2 id="legacy-comparison-title">Archived comparison layout</h2></div>
+        <p class="section-note">Compare synchronized 2D images, rendered turntable videos, or live 3D assets with an automatic detail tour followed by linked manual inspection.</p>
+      </div>
+      <div class="video-toolbar" aria-label="Video comparison controls">
+        <div class="control case-control"><span>Select case</span><div class="segmented" id="case-controls"></div></div>
+        <div class="control view-control"><span>Inspect</span><div class="segmented view-switch" id="view-controls" role="tablist" aria-label="Comparison view"><button type="button" class="active" data-view="3d" role="tab" aria-selected="true">Rendered video</button><button type="button" data-view="model" role="tab" aria-selected="false">3D Rotation</button><button type="button" data-view="2d" role="tab" aria-selected="false">2D images</button></div></div>
+        <div class="playback-controls">
+          <button class="playback-button" id="toggle-play" aria-label="Pause all comparison videos">Pause</button>
+          <button class="playback-button" id="replay-detail">Replay detail</button>
+        </div>
+      </div>
+      <div class="playback-status" aria-live="polite">
+        <div><span class="status-dot" id="status-dot"></span><strong id="phase-label">Rotating</strong><span id="detail-label">Object identity and occluder fusion</span></div>
+        <span id="case-caption">Paper Case 03 · overexposure</span>
+      </div>
+      <div class="video-grid" id="video-grid">
+        <article class="video-card" data-method="before">
+          <header><span>Observed input</span><small>Original → Pixal3D</small></header>
+          <div class="video-frame"><video muted playsinline preload="metadata"></video><span class="detail-badge">DETAIL · 3 SEC</span></div>
+        </article>
+        <article class="video-card" data-method="firered">
+          <header><span>FireRed-Image-Edit</span><small>Edited → Pixal3D</small></header>
+          <div class="video-frame"><video muted playsinline preload="metadata"></video><span class="detail-badge">DETAIL · 3 SEC</span></div>
+        </article>
+        <article class="video-card" data-method="gpt">
+          <header><span>GPT Image-2.5</span><small>Edited → Pixal3D</small></header>
+          <div class="video-frame"><video muted playsinline preload="metadata"></video><span class="detail-badge">DETAIL · 3 SEC</span></div>
+        </article>
+        <article class="video-card ours-card" data-method="ours">
+          <header><span>Gate3DGen</span><small>Purified → Pixal3D</small></header>
+          <div class="video-frame"><video muted playsinline preload="metadata"></video><span class="detail-badge">DETAIL · 3 SEC</span></div>
+        </article>
+        <article class="video-card gt-card" data-method="gt" hidden>
+          <header><span>3D GT</span><small>Ground-truth 3D asset</small></header>
+          <div class="video-frame"><video muted playsinline preload="metadata"></video><span class="detail-badge">DETAIL · 3 SEC</span></div>
+        </article>
+      </div>
+      <div class="model-viewer-panel" id="model-viewer-panel" hidden aria-label="Synchronized interactive 3D comparison">
+        <div class="model-toolbar">
+          <div><strong id="model-phase">Loading 3D assets</strong><span id="model-instruction">The automatic tour locks interaction until one complete rotation finishes.</span></div>
+          <div class="model-actions"><button class="playback-button" id="model-replay" type="button">Replay auto tour</button><button class="playback-button" id="model-reset" type="button" disabled>Reset linked view</button></div>
+        </div>
+        <div class="model-grid" id="model-grid">
+          <article class="model-card" data-method="before"><header><span>Observed input</span><small>Original → Pixal3D</small></header><div class="model-frame"><model-viewer loading="eager" reveal="auto" interaction-prompt="none" shadow-intensity="0.55" shadow-softness="0.9" tone-mapping="aces" alt="Interactive 3D reconstruction from the observed input"></model-viewer><span class="model-detail-badge">DETAIL · 3 SEC</span><span class="model-lock">AUTO TOUR · CONTROLS LOCKED</span></div></article>
+          <article class="model-card" data-method="firered"><header><span>FireRed-Image-Edit</span><small>Edited → Pixal3D</small></header><div class="model-frame"><model-viewer loading="eager" reveal="auto" interaction-prompt="none" shadow-intensity="0.55" shadow-softness="0.9" tone-mapping="aces" alt="Interactive 3D reconstruction after FireRed-Image-Edit repair"></model-viewer><span class="model-detail-badge">DETAIL · 3 SEC</span><span class="model-lock">AUTO TOUR · CONTROLS LOCKED</span></div></article>
+          <article class="model-card" data-method="gpt"><header><span>GPT Image-2.5</span><small>Edited → Pixal3D</small></header><div class="model-frame"><model-viewer loading="eager" reveal="auto" interaction-prompt="none" shadow-intensity="0.55" shadow-softness="0.9" tone-mapping="aces" alt="Interactive 3D reconstruction after GPT Image-2.5 repair"></model-viewer><span class="model-detail-badge">DETAIL · 3 SEC</span><span class="model-lock">AUTO TOUR · CONTROLS LOCKED</span></div></article>
+          <article class="model-card ours-card" data-method="ours"><header><span>Gate3DGen</span><small>Purified → Pixal3D</small></header><div class="model-frame"><model-viewer loading="eager" reveal="auto" interaction-prompt="none" shadow-intensity="0.55" shadow-softness="0.9" tone-mapping="aces" alt="Interactive 3D reconstruction after Gate3DGen purification"></model-viewer><span class="model-detail-badge">DETAIL · 3 SEC</span><span class="model-lock">AUTO TOUR · CONTROLS LOCKED</span></div></article>
+          <article class="model-card gt-card" data-method="gt" hidden><header><span>3D GT</span><small>Ground-truth 3D asset</small></header><div class="model-frame"><model-viewer loading="eager" reveal="auto" interaction-prompt="none" shadow-intensity="0.55" shadow-softness="0.9" tone-mapping="aces" alt="Interactive ground-truth 3D asset"></model-viewer><span class="model-detail-badge">DETAIL · 3 SEC</span><span class="model-lock">AUTO TOUR · CONTROLS LOCKED</span></div></article>
+        </div>
+        <p class="model-help"><strong>After the automatic tour:</strong> drag any model to rotate all views · scroll or pinch any model to zoom all views · double-click any model to reset the linked camera.</p>
+      </div>
+      <div class="image-grid" id="image-grid" hidden aria-label="Synchronized 2D image comparison">
+        <article class="image-card" data-method="before">
+          <header><span>Observed input</span><small>Original image</small></header>
+          <div class="image-viewport"><img draggable="false" alt="Observed input image for the selected case"></div>
+        </article>
+        <article class="image-card" data-method="firered">
+          <header><span>FireRed-Image-Edit</span><small>Repaired image</small></header>
+          <div class="image-viewport"><img draggable="false" alt="FireRed-Image-Edit repaired image for the selected case"></div>
+        </article>
+        <article class="image-card" data-method="gpt">
+          <header><span>GPT Image-2.5</span><small>Repaired image</small></header>
+          <div class="image-viewport"><img draggable="false" alt="GPT Image-2.5 repaired image for the selected case"></div>
+        </article>
+        <article class="image-card ours-card" data-method="ours">
+          <header><span>Gate3DGen</span><small>Purified image</small></header>
+          <div class="image-viewport"><img draggable="false" alt="Gate3DGen purified image for the selected case"></div>
+        </article>
+        <article class="image-card gt-card" data-method="gt" hidden>
+          <header><span>Clean GT</span><small>Clean oracle reference</small></header>
+          <div class="image-viewport"><img draggable="false" alt="Clean ground-truth image for the selected case"></div>
+        </article>
+      </div>
+      <p class="image-inspect-help" id="image-inspect-help" hidden><kbd>Scroll</kbd> zooms all images together · <kbd>Drag</kbd> pans all images together · <kbd>Double-click</kbd> resets the shared view</p>
+      <div class="video-timeline" aria-hidden="true"><span>Rotate</span><i></i><span>Zoom & inspect · 3s</span><i></i><span>Continue rotating</span></div>
+    </section>
+
+    <section class="section citation" id="citation" aria-labelledby="citation-title">
+      <div class="section-heading compact">
+        <div><h2 class="compact-centered-title" id="citation-title">Citation</h2></div>
+        <button class="copy-button" id="copy-citation">Copy BibTeX</button>
+      </div>
+      <pre><code id="bibtex">@article{li2026gate3dgen,
+  title   = {Gate3DGen: A Pre-processing Model that Selectively Purifies Real-World Images for 3D Generation},
+  author  = {Li, Xiaolin and Huang, Zihao and Meng, Fanpeng and Yang, Chen and Wu, Guanjun and Zhang, Kai and Fang, Jiemin and Tian, Qi},
+  journal = {arXiv preprint},
+  year    = {2026}
+}</code></pre>
+    </section>
+  </main>
+
+  <dialog class="figure-lightbox" id="figure-lightbox" aria-labelledby="figure-lightbox-title">
+    <div class="figure-lightbox-toolbar">
+      <strong id="figure-lightbox-title">Figure preview</strong>
+      <button type="button" id="figure-lightbox-close">Close</button>
+    </div>
+    <div class="figure-lightbox-canvas">
+      <img id="figure-lightbox-image" alt="">
+    </div>
+    <p>Pinch or use the browser zoom controls to inspect details. Rotate a phone to landscape for a wider view.</p>
+  </dialog>
+
+</body>
+</html>
