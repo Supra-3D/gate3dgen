@@ -28,6 +28,8 @@ def test_setup_downloads_both_official_models(tmp_path, monkeypatch, external):
     result = subprocess.run(["bash", str(ROOT / "setup/setup.sh")], cwd=ROOT,
                             check=True, capture_output=True, text=True)
     assert f"python setup/download_models.py all --output-root {destination}" in log.read_text()
+    assert "python setup/download_weights.py --output-root" in log.read_text()
+    assert f"--firered {destination}/FireRed-Image-Edit-1.1" in log.read_text()
     assert "Setup complete" in result.stdout
     if external:
         assert not destination.exists()
@@ -38,6 +40,27 @@ def load_setup(name):
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
+
+
+def test_setup_reuses_explicit_base_and_local_release(tmp_path, monkeypatch):
+    executable = tmp_path / "conda"
+    executable.write_text('#!/bin/bash\nprintf "%s\\n" "$*" >> "$SETUP_TEST_LOG"\nexit 0\n')
+    executable.chmod(0o755)
+    log = tmp_path / "commands.txt"
+    monkeypatch.setenv("PATH", str(tmp_path) + os.pathsep + os.environ["PATH"])
+    monkeypatch.setenv("SETUP_TEST_LOG", str(log))
+    monkeypatch.setenv("GATE3DGEN_MODEL_PATH", str(tmp_path / "base"))
+    monkeypatch.setenv("GATE3DGEN_RELEASE_DIR", str(tmp_path / "release"))
+    monkeypatch.setenv("GATE3DGEN_CHECKPOINT_ROOT", str(tmp_path / "ready"))
+    monkeypatch.delenv("GATE3DGEN_SKIP_UPSTREAM_DOWNLOAD", raising=False)
+    subprocess.run(["bash", str(ROOT / "setup/setup.sh")], cwd=ROOT,
+                   check=True, capture_output=True, text=True)
+    commands = log.read_text()
+    assert "python setup/download_models.py pixal3d" in commands
+    assert "python setup/download_models.py all" not in commands
+    assert f"--firered {tmp_path / 'base'}" in commands
+    assert f"--release-dir {tmp_path / 'release'}" in commands
+    assert f"--output-root {tmp_path / 'ready'}" in commands
 
 
 def test_setup_weights_check_requires_complete_package(tmp_path):
@@ -75,7 +98,10 @@ def test_official_downloads_default_inside_and_allow_external_tests(tmp_path, mo
     assert [call["repo_id"] for call in calls] == [
         "FireRedTeam/FireRed-Image-Edit-1.1", "TencentARC/Pixal3D",
     ]
-    assert all(set(call) == {"repo_id", "local_dir"} for call in calls)  # no partial-download filters
+    assert calls[0]["revision"] == download.FIRERED_REVISION
+    assert calls[0]["token"] is False
+    assert set(calls[1]) == {"repo_id", "local_dir"}
+    assert all("allow_patterns" not in call for call in calls)  # complete upstream snapshots
     assert all(call["local_dir"].parent == tmp_path for call in calls)
     calls.clear()
     assert download.main(["all"]) == 0

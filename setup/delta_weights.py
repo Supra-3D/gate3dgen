@@ -140,7 +140,10 @@ def verify_and_iter(base, package):
 
 def verify(base, package):
     count = sum(1 for _ in verify_and_iter(base, package))
+    metadata = json.loads((Path(package) / 'manifest.json').read_text())
     return dict(all_tensors_bit_identical=True, verified_tensors=count,
+                reference=metadata.get('precision_reference', 'manifest target tensors'),
+                original_checkpoint_bit_identical=metadata.get('original_checkpoint_bit_identical', True),
                 checks='base bytes, replacement shard checksums, reconstructed tensor shape/dtype/bytes')
 
 
@@ -169,7 +172,10 @@ def materialize(base, package, output, kind):
             save_file(pending, output / name, metadata={'format': 'pt'})
             mapping.update({key: name for key in pending})
         (output / 'model.safetensors.index.json').write_text(json.dumps({'weight_map': mapping}, indent=2) + '\n')
+    metadata = json.loads((Path(package) / 'manifest.json').read_text())
     marker.write_text(json.dumps(dict(all_tensors_bit_identical=True,
+                                     reference=metadata.get('precision_reference', 'manifest target tensors'),
+                                     original_checkpoint_bit_identical=metadata.get('original_checkpoint_bit_identical', True),
                                      replacement_manifest_sha256=sha_file(Path(package) / 'manifest.json')), indent=2)+'\n')
 
 
