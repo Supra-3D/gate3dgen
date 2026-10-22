@@ -1,27 +1,46 @@
-> **Source-only repository.** Complete original-precision inference weights are
-> distributed separately on [Hugging Face](https://huggingface.co/hllee0615/gate3dgen).
-> See the [weight download guide](docs/weights.md) for access checks, dependency links
-> and the exact checkpoint layout. No checkpoint tensors are stored in this Git repository.
+<h1 align="center">Gate3DGen: A Pre-processing Model that Selectively Purifies Real-World Images for 3D Generation</h1>
 
-![Gate3DGen](docs/images/logo.png)
+<p align="center">
+  <a href="https://supra-3d.github.io/gate3dgen/"><img src="https://img.shields.io/badge/Project-Page-blue" alt="Project page"></a>
+  <a href="docs/Gate3DGen.pdf"><img src="https://img.shields.io/badge/Paper-PDF-b31b1b" alt="Paper PDF"></a>
+  <a href="https://huggingface.co/hllee0615/gate3dgen"><img src="https://img.shields.io/badge/Models-Hugging_Face-yellow" alt="Model weights"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0%20%2B%20third--party-green" alt="Source license"></a>
+</p>
 
-## ✨ A Pre-processing Model that Selectively Purifies Real-World Images for 3D Generation
+<p align="center">
+  <a href="https://orcid.org/0009-0005-6066-2131">Xiaolin Li</a><sup>1,2*</sup>,
+  <a href="https://inso-13.github.io/">Zihao Huang</a><sup>2*</sup>,
+  <a href="https://mfp0610.github.io/">Fanpeng Meng</a><sup>2</sup>,
+  <a href="https://chensjtu.github.io/">Chen Yang</a><sup>2</sup>,<br>
+  <a href="https://guanjunwu.github.io/">Guanjun Wu</a><sup>3,2</sup>,
+  <a href="https://www.sigs.tsinghua.edu.cn/zk_en/main.htm">Kai Zhang</a><sup>1✉</sup>,
+  <a href="https://jaminfong.cn/">Jiemin Fang</a><sup>2✉‡</sup>,
+  <a href="https://www.qitian1987.com/">Qi Tian</a><sup>2✉</sup>
+</p>
 
-### [Paper](docs/Gate3DGen.pdf) | YouTube (coming soon) | Page (coming soon)
-
-[Xiaolin Li](https://orcid.org/0009-0005-6066-2131)<sup>1,2*</sup>, [Zihao Huang](https://inso-13.github.io/)<sup>2*</sup>, [Fanpeng Meng](https://mfp0610.github.io/)<sup>2</sup>, [Chen Yang](https://chensjtu.github.io/)<sup>2</sup>,  
-
-[Guanjun Wu](https://guanjunwu.github.io/)<sup>3,2</sup>, [Kai Zhang](https://www.sigs.tsinghua.edu.cn/zk_en/main.htm)<sup>1✉</sup>, [Jiemin Fang](https://jaminfong.cn/)<sup>2✉‡</sup>, [Qi Tian](https://www.qitian1987.com/)<sup>2✉</sup>
-
-*Equal contribution. ‡Project lead. ✉Corresponding authors.
-
-1Tsinghua University · 2Huawei Inc. · 3Huazhong University of Science and Technology
-
-*Gate3DGen selectively purifies real-world images while bypassing inputs classified as clean, improving downstream 3D generation without retraining the 3D generator.*
+<p align="center">
+  <sup>1</sup>Tsinghua University &nbsp;&nbsp;
+  <sup>2</sup>Huawei Inc. &nbsp;&nbsp;
+  <sup>3</sup>Huazhong University of Science and Technology<br>
+  <sup>*</sup>Equal contribution &nbsp;&nbsp;
+  <sup>‡</sup>Project lead &nbsp;&nbsp;
+  <sup>✉</sup>Corresponding authors
+</p>
 
 ![Figure 1: 3D generation from observed images and Gate3DGen-purified images](docs/images/figure1_teaser.png)
 
 *Figure 1. The same frozen 3D generator receives the observed image (top) or the purified image (bottom) in each example.*
+
+**Gate3DGen** selectively purifies real-world images while bypassing inputs
+classified as clean, improving downstream 3D generation without retraining the
+3D generator.
+
+- **Selective routing.** Classify an input as KEEP or PURIFY and preserve clean inputs.
+- **One-step purification.** Restore selected images using the trained router's hidden states.
+- **Frozen 3D generation.** Use the resulting image with a downstream 3D generator.
+
+Learn more on the [project page](https://supra-3d.github.io/gate3dgen/), read the
+[paper](docs/Gate3DGen.pdf), or download the [model weights](https://huggingface.co/hllee0615/gate3dgen).
 
 ## 🛠️ Setup
 
@@ -39,6 +58,9 @@ The default stack is PyTorch 2.9.0 with CUDA 12.8 (`cu128`) on a compatible NVID
 with frozen runtime components; no FireRed-base reconstruction is needed for inference.
 The default 3D demo additionally requires the [Pixal3D backend and auxiliary models](docs/weights.md#external-models).
 Running `setup.sh` without the skip variable also downloads the complete upstream FireRed and Pixal3D repositories for existing workflows.
+
+This source repository excludes checkpoint tensors. See the [weight download guide](docs/weights.md)
+for core model access, external dependency requirements and the exact checkpoint layout.
 
 
 ## 🚀 Demo
