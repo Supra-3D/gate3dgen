@@ -1,0 +1,748 @@
+{
+  "version": "gate3dgen-pair-synthesis-1.0",
+  "language": "en",
+  "purpose": "Gate3DGen paired-data synthesis: generate a realistic clean scene and one controlled degradation for 3D-condition restoration training",
+  "global_negative_prompt": "",
+  "scene_library": {
+    "scene_shadow_window": {
+      "description": "A natural indoor room near a large window, with a matte wooden or neutral support and a pale wall.",
+      "gt_lighting": "broad, even, neutral illumination on the visible object surface with no attached shadow",
+      "background_elements": [
+        "matte support",
+        "pale wall",
+        "large window outside the frame",
+        "subtle natural depth and perspective"
+      ],
+      "camera_context": "static eye-level camera, medium close-up, complete object visible",
+      "negative": [
+        "no attached shadow on the object",
+        "no dirt",
+        "no reflection",
+        "no glare",
+        "no crop",
+        "no exposure degradation"
+      ]
+    },
+    "scene_glass_display": {
+      "description": "A natural shop, cabinet or museum display photographed through a clean foreground glass pane.",
+      "gt_lighting": "even neutral illumination on the object through clean glass with no reflection",
+      "background_elements": [
+        "display interior",
+        "shelf or cabinet",
+        "visible frame and natural depth"
+      ],
+      "camera_context": "static frontal camera, level glass plane, complete object visible",
+      "negative": [
+        "no empty studio",
+        "no reflection",
+        "no smudges",
+        "no dust",
+        "no scratches",
+        "no haze",
+        "no crop"
+      ]
+    },
+    "scene_bright_window": {
+      "description": "A natural kitchen, office or room near a bright window, with surrounding architecture visible.",
+      "gt_lighting": "normal unclipped neutral exposure on the object despite the bright surroundings",
+      "background_elements": [
+        "window or doorway",
+        "curtain, blind or wall",
+        "subtle exterior depth"
+      ],
+      "camera_context": "static handheld-camera viewpoint, natural perspective, complete object visible",
+      "negative": [
+        "no empty studio",
+        "no overexposure",
+        "no glare",
+        "no color cast",
+        "no crop"
+      ]
+    },
+    "scene_dim_room": {
+      "description": "A natural dim room, hallway or workshop at dusk with a weak practical light and visible depth.",
+      "gt_lighting": "even recoverable neutral illumination on the object with no crushed detail",
+      "background_elements": [
+        "receding room or hallway",
+        "weak lamp",
+        "walls and subtle furniture"
+      ],
+      "camera_context": "static handheld-camera viewpoint, normal perspective, complete object visible",
+      "negative": [
+        "no black background",
+        "no underexposure",
+        "no crushed blacks",
+        "no color cast",
+        "no crop"
+      ]
+    },
+    "scene_warm_indoor": {
+      "description": "A natural lived-in interior with warm practical lamps, textured walls and a neutral support.",
+      "gt_lighting": "uniform neutral white-balanced illumination on the object",
+      "background_elements": [
+        "warm lamp",
+        "curtain or shelving",
+        "receding room depth"
+      ],
+      "camera_context": "static camera, realistic indoor photograph, complete object visible",
+      "negative": [
+        "no empty studio",
+        "no warm or cool cast on the object",
+        "no crop"
+      ]
+    },
+    "scene_depth_corridor": {
+      "description": "A natural corridor, workshop or covered walkway with strong receding lines and visible depth planes.",
+      "gt_lighting": "even neutral illumination and normal sharpness across the object",
+      "background_elements": [
+        "receding corridor",
+        "doorway or shelving",
+        "directional architectural lines"
+      ],
+      "camera_context": "static camera, clear subject focus, natural depth separation, complete object visible",
+      "negative": [
+        "no flat gradient backdrop",
+        "no optical blur",
+        "no motion blur",
+        "no crop"
+      ]
+    },
+    "scene_motion_street": {
+      "description": "A natural street-side work area or station corridor with directional lines and distant urban detail.",
+      "gt_lighting": "even neutral illumination and sharp static capture on the object",
+      "background_elements": [
+        "street or corridor depth",
+        "nearby structural lines",
+        "distant buildings, vehicles or foliage"
+      ],
+      "camera_context": "static camera, sharp reference capture, complete object visible",
+      "negative": [
+        "no flat backdrop",
+        "no motion blur",
+        "no optical blur",
+        "no crop"
+      ]
+    },
+    "scene_color_environment": {
+      "description": "A natural interior or storefront with a visible or off-frame colored practical light, illuminated sign, or colored surface that can plausibly cast colored light into the scene.",
+      "gt_lighting": "uniform neutral illumination on the object with no environmental color spill",
+      "background_elements": [
+        "colored practical light or illuminated sign",
+        "colored environmental surface",
+        "receding room or storefront",
+        "natural perspective depth"
+      ],
+      "camera_context": "static camera, realistic photographic perspective, complete object visible",
+      "negative": [
+        "no plain backdrop",
+        "no color spill",
+        "no color cast on the object",
+        "no crop"
+      ]
+    },
+    "scene_handheld_detail": {
+      "description": "A natural mobile-camera photograph in a lived-in room or work area with visible environmental context.",
+      "gt_lighting": "even neutral illumination with normal sharpness and exposure",
+      "background_elements": [
+        "room geometry",
+        "window, doorway or shelving",
+        "moderate natural detail"
+      ],
+      "camera_context": "static reference framing, realistic mobile-camera perspective, complete object visible",
+      "negative": [
+        "no empty studio",
+        "no compression artifacts",
+        "no digital ringing",
+        "no blur",
+        "no crop"
+      ]
+    },
+    "scene_glare_source": {
+      "description": "A natural interior or architectural scene with a bright off-axis window or lamp and visible structure.",
+      "gt_lighting": "normal contrast and exposure with no veiling glare on the object",
+      "background_elements": [
+        "room or outdoor depth",
+        "architectural detail",
+        "bright source outside the frame"
+      ],
+      "camera_context": "static camera, normal contrast reference capture, complete object visible",
+      "negative": [
+        "no empty background",
+        "no glare",
+        "no haze",
+        "no crop",
+        "no overexposure"
+      ]
+    },
+    "scene_rainy_glass": {
+      "description": "A natural rainy window or storefront scene with a clean foreground glass pane and distant outdoor detail.",
+      "gt_lighting": "even neutral illumination through clean glass",
+      "background_elements": [
+        "wet pavement",
+        "distant buildings or foliage",
+        "overcast sky and natural depth"
+      ],
+      "camera_context": "static camera, level glass plane, natural depth, complete object visible",
+      "negative": [
+        "no empty background",
+        "no smudges",
+        "no dust",
+        "no droplets",
+        "no condensation haze",
+        "no scratches"
+      ]
+    }
+  },
+  "scene_assignments": {
+    "crop": "scene_handheld_detail",
+    "shadow": "scene_shadow_window",
+    "glass_reflection": "scene_glass_display",
+    "veiling_glare": "scene_glare_source",
+    "overexposure": "scene_bright_window",
+    "optical_blur": "scene_depth_corridor",
+    "digital_degradation": "scene_handheld_detail",
+    "white_balance": "scene_warm_indoor",
+    "underexposure": "scene_dim_room",
+    "motion_blur": "scene_motion_street",
+    "local_color_spill": "scene_color_environment",
+    "dirty_glass": "scene_rainy_glass"
+  },
+  "degradation_prompts": {
+    "crop": {
+      "description_zh": "程序化平移画布，使主体部分越出边界。",
+      "preferred_method": "hybrid",
+      "placeholders": {
+        "side": [
+          "left",
+          "right",
+          "top",
+          "bottom"
+        ]
+      },
+      "variants": [
+        {
+          "id": "crop_heavy",
+          "severity": "heavy",
+          "method": "hybrid",
+          "factors": [
+            "crop"
+          ],
+          "allows_camera_change": false,
+          "parameters": {
+            "fraction": 0.35
+          },
+          "postprocess": {
+            "type": "crop",
+            "parameters": {
+              "fraction": 0.35
+            }
+          },
+          "scene_rationale": "The framing is a handheld or documentary capture in a real environment; the crop reflects an imperfect composition while the support and background remain visible.",
+          "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene.",
+          "degradation_prompt": "Move the framing so part of the object extends outside the {side} image boundary.",
+          "scene_id": "scene_handheld_detail",
+          "affected_scope": "global_capture",
+          "preserve_scope": "background_and_geometry",
+          "parameter_ranges": {
+            "fraction": {
+              "min": 0.28,
+              "max": 0.38
+            }
+          },
+          "parameters_are_defaults_only": true
+        }
+      ]
+    },
+    "shadow": {
+      "description_zh": "只改变物体表面的非均匀照明或附着阴影，不混入欠曝。",
+      "preferred_method": "generative",
+      "variants": [
+        {
+          "id": "shadow_hard_heavy",
+          "severity": "heavy",
+          "method": "generative",
+          "factors": [
+            "shadow"
+          ],
+          "allows_camera_change": false,
+          "scene_rationale": "A directional light creates attached self-shadowing and uneven illumination across the object surface. The shadow remains confined to the object and does not affect the background or support.",
+          "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene.",
+          "degradation_prompt": "Create strong uneven directional lighting across the object surface. Add deep attached self-shadowing in the recessed, side-facing and occluded areas, with a clear light-to-dark gradient and natural edge transitions. Keep the object geometry, material and intrinsic color unchanged. Do not add shadows to the background, floor, wall or support.",
+          "scene_id": "scene_shadow_window",
+          "affected_scope": "object_only",
+          "preserve_scope": "background_and_geometry"
+        }
+      ]
+    },
+    "glass_reflection": {
+      "description_zh": "隔着玻璃拍摄时玻璃平面上的环境反射，不改变物体材质。",
+      "preferred_method": "generative",
+      "variants": [
+        {
+          "id": "glass_reflection_heavy",
+          "severity": "heavy",
+          "method": "generative",
+          "factors": [
+            "glass_reflection"
+          ],
+          "allows_camera_change": false,
+          "scene_rationale": "The pane, frame, and environment provide a physical optical reason for the reflection.",
+          "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene.",
+          "degradation_prompt": "Add a strong, clearly visible reflection of {reflection_content} on the foreground glass, partially obscuring the object.",
+          "scene_id": "scene_glass_display",
+          "affected_scope": "foreground_layer",
+          "preserve_scope": "background_and_geometry"
+        }
+      ],
+      "placeholders": {
+        "reflection_content": [
+          "a person walking past",
+          "a domestic cat or dog",
+          "nearby trees and broad-leaf plants",
+          "a brick or concrete building facade",
+          "a window frame with indoor lamps",
+          "shelves and furniture from the room"
+        ]
+      }
+    },
+    "veiling_glare": {
+      "description_zh": "镜头或玻璃散射形成的眩光与局部对比度下降，不包含过曝。",
+      "preferred_method": "generative",
+      "variants": [
+        {
+          "id": "veiling_glare_heavy",
+          "severity": "heavy",
+          "method": "generative",
+          "factors": [
+            "veiling_glare"
+          ],
+          "allows_camera_change": false,
+          "scene_rationale": "A real architectural, indoor, or outdoor environment supplies the off-axis light, colored surface, or glass medium needed for this effect.",
+          "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene.",
+          "degradation_prompt": "Add strong veiling glare from a bright off-axis light, creating a broad milky veil and noticeable loss of contrast.",
+          "scene_id": "scene_glare_source",
+          "affected_scope": "global_capture",
+          "preserve_scope": "background_and_geometry"
+        }
+      ]
+    },
+    "overexposure": {
+      "description_zh": "程序化曝光增益和高光截断，与反射和眩光分离。",
+      "preferred_method": "hybrid",
+      "variants": [
+        {
+          "id": "overexposure_heavy",
+          "severity": "heavy",
+          "method": "hybrid",
+          "factors": [
+            "overexposure"
+          ],
+          "allows_camera_change": false,
+          "parameters": {
+            "gain": 1.8,
+            "clip_threshold": 220
+          },
+          "postprocess": {
+            "type": "exposure",
+            "parameters": {
+              "gain": 1.8,
+              "clip_threshold": 220
+            }
+          },
+          "scene_rationale": "Strong window backlight or a bright outdoor opening explains highlight clipping.",
+          "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene.",
+          "degradation_prompt": "Apply strong global overexposure with bright object regions clipped.",
+          "scene_id": "scene_bright_window",
+          "affected_scope": "global_capture",
+          "preserve_scope": "background_and_geometry",
+          "parameter_ranges": {
+            "gain": {
+              "min": 1.65,
+              "max": 2.0
+            },
+            "clip_threshold": {
+              "min": 205,
+              "max": 230,
+              "type": "integer"
+            }
+          },
+          "parameters_are_defaults_only": true
+        }
+      ]
+    },
+    "optical_blur": {
+      "description_zh": "程序化镜头失焦模糊，不混入降采样或压缩。",
+      "preferred_method": "hybrid",
+      "variants": [
+        {
+          "id": "optical_blur_heavy",
+          "severity": "heavy",
+          "method": "hybrid",
+          "factors": [
+            "optical_blur"
+          ],
+          "allows_camera_change": false,
+          "parameters": {
+            "gaussian_radius": 3
+          },
+          "postprocess": {
+            "type": "optical_blur",
+            "parameters": {
+              "gaussian_radius": 3
+            }
+          },
+          "scene_rationale": "A shallow-depth documentary capture with focus locked near the object explains defocus.",
+          "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene.",
+          "degradation_prompt": "Apply strong out-of-focus optical blur.",
+          "scene_id": "scene_depth_corridor",
+          "affected_scope": "global_capture",
+          "preserve_scope": "background_and_geometry",
+          "parameter_ranges": {
+            "gaussian_radius": {
+              "min": 2.5,
+              "max": 3.8
+            }
+          },
+          "parameters_are_defaults_only": true
+        }
+      ]
+    },
+    "digital_degradation": {
+      "description_zh": "固定的降采样、传感器噪声与 JPEG 压缩流水线。",
+      "preferred_method": "hybrid",
+      "variants": [
+        {
+          "id": "digital_degradation_heavy",
+          "severity": "heavy",
+          "method": "hybrid",
+          "factors": [
+            "digital_degradation"
+          ],
+          "allows_camera_change": false,
+          "parameters": {
+            "short_edge": 128,
+            "gaussian_radius": 0.8,
+            "noise_std": 3,
+            "jpeg_quality": 60
+          },
+          "postprocess": {
+            "type": "digital",
+            "parameters": {
+              "short_edge": 128,
+              "gaussian_radius": 0.8,
+              "noise_std": 3,
+              "jpeg_quality": 60
+            }
+          },
+          "scene_rationale": "A low-light handheld/mobile capture explains moderate sensor noise and pipeline softness.",
+          "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene.",
+          "degradation_prompt": "Apply strong compression and sensor-processing artifacts without optical blur.",
+          "scene_id": "scene_handheld_detail",
+          "affected_scope": "global_capture",
+          "preserve_scope": "background_and_geometry",
+          "parameter_ranges": {
+            "short_edge": {
+              "choices": [
+                96,
+                128,
+                160
+              ]
+            },
+            "gaussian_radius": {
+              "min": 0.65,
+              "max": 1.0
+            },
+            "noise_std": {
+              "min": 2.5,
+              "max": 5.0
+            },
+            "jpeg_quality": {
+              "min": 45,
+              "max": 68,
+              "type": "integer"
+            }
+          },
+          "parameters_are_defaults_only": true
+        }
+      ]
+    },
+    "white_balance": {
+      "description_zh": "程序化全局白平衡或颜色偏移，用于测试 albedo 颜色恢复。",
+      "preferred_method": "hybrid",
+      "variants": [
+        {
+          "id": "white_balance_cool_heavy",
+          "severity": "heavy",
+          "method": "hybrid",
+          "factors": [
+            "white_balance"
+          ],
+          "allows_camera_change": false,
+          "parameters": {
+            "channel_gains": [
+              0.78,
+              0.95,
+              1.22
+            ]
+          },
+          "postprocess": {
+            "type": "white_balance",
+            "parameters": {
+              "channel_gains": [
+                0.78,
+                0.95,
+                1.22
+              ]
+            }
+          },
+          "scene_rationale": "The warm/cool environmental light source explains the color cast.",
+          "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene.",
+          "degradation_prompt": "Shift the global white balance strongly cool.",
+          "scene_id": "scene_warm_indoor",
+          "affected_scope": "global_capture",
+          "preserve_scope": "background_and_geometry",
+          "parameter_ranges": {
+            "channel_gains": [
+              {
+                "min": 0.72,
+                "max": 0.84
+              },
+              {
+                "min": 0.92,
+                "max": 0.98
+              },
+              {
+                "min": 1.15,
+                "max": 1.3
+              }
+            ]
+          },
+          "parameters_are_defaults_only": true
+        }
+      ]
+    },
+    "underexposure": {
+      "description_zh": "程序化欠曝、黑位压缩和暗部噪声，与阴影分离。",
+      "preferred_method": "hybrid",
+      "variants": [
+        {
+          "id": "underexposure_heavy",
+          "severity": "heavy",
+          "method": "hybrid",
+          "factors": [
+            "underexposure"
+          ],
+          "allows_camera_change": false,
+          "parameters": {
+            "gain": 0.42,
+            "black_threshold": 20,
+            "dark_noise_std": 6
+          },
+          "postprocess": {
+            "type": "underexposure",
+            "parameters": {
+              "gain": 0.42,
+              "black_threshold": 20,
+              "dark_noise_std": 6
+            }
+          },
+          "scene_rationale": "A dim interior or night capture with one weak practical light explains shadow loss.",
+          "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene.",
+          "degradation_prompt": "Apply strong global underexposure with substantial but recoverable shadow clipping.",
+          "scene_id": "scene_dim_room",
+          "affected_scope": "global_capture",
+          "preserve_scope": "background_and_geometry",
+          "parameter_ranges": {
+            "gain": {
+              "min": 0.35,
+              "max": 0.48
+            },
+            "black_threshold": {
+              "min": 16,
+              "max": 24,
+              "type": "integer"
+            },
+            "dark_noise_std": {
+              "min": 4.0,
+              "max": 8.0
+            }
+          },
+          "parameters_are_defaults_only": true
+        }
+      ]
+    },
+    "motion_blur": {
+      "description_zh": "程序化方向性相机运动模糊，与高斯失焦分离。",
+      "preferred_method": "hybrid",
+      "placeholders": {
+        "angle_degrees": [
+          0,
+          30,
+          60,
+          90,
+          120,
+          150
+        ]
+      },
+      "variants": [
+        {
+          "id": "motion_blur_heavy",
+          "severity": "heavy",
+          "method": "hybrid",
+          "factors": [
+            "motion_blur"
+          ],
+          "allows_camera_change": false,
+          "parameters": {
+            "length": 21
+          },
+          "postprocess": {
+            "type": "motion_blur",
+            "parameters": {
+              "length": 21
+            }
+          },
+          "scene_rationale": "Handheld panning, a moving subject, or nearby traffic explains directional motion blur.",
+          "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene.",
+          "degradation_prompt": "Apply strong directional motion blur from camera panning, object movement or nearby traffic, with the background streak direction consistent with the same motion.",
+          "scene_id": "scene_motion_street",
+          "affected_scope": "global_capture",
+          "preserve_scope": "background_and_geometry",
+          "parameter_ranges": {
+            "length": {
+              "min": 16,
+              "max": 26,
+              "type": "integer"
+            }
+          },
+          "parameters_are_defaults_only": true
+        }
+      ]
+    },
+    "local_color_spill": {
+      "description_zh": "局部环境光颜色污染，不改变 intrinsic albedo。",
+      "preferred_method": "generative",
+      "variants": [
+        {
+          "id": "local_color_spill_heavy",
+          "severity": "heavy",
+          "method": "generative",
+          "factors": [
+            "local_color_spill"
+          ],
+          "allows_camera_change": false,
+          "scene_rationale": "A real architectural, indoor, or outdoor environment supplies the off-axis light, colored surface, or glass medium needed for this effect.",
+          "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene.",
+          "degradation_prompt": "Add a strong localized colored-light spill from a plausible nearby source, with a smooth falloff, soft edge, contact shadow and restrained highlight. It must look like captured illumination, not painted color or changed albedo.",
+          "scene_id": "scene_color_environment",
+          "affected_scope": "object_only",
+          "preserve_scope": "background_and_geometry"
+        }
+      ]
+    },
+    "dirty_glass": {
+      "description_zh": "隔着有污渍、雾气、水滴或划痕的玻璃拍摄。",
+      "preferred_method": "generative",
+      "variants": [
+        {
+          "id": "dirty_glass_heavy",
+          "severity": "heavy",
+          "method": "generative",
+          "factors": [
+            "dirty_glass"
+          ],
+          "allows_camera_change": false,
+          "scene_rationale": "The requested edit is confined to the foreground glass plane.",
+          "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene.",
+          "degradation_prompt": "Make the image look photographed through heavily dirty glass with condensation haze, water droplets and fine scratches in the foreground.",
+          "scene_id": "scene_rainy_glass",
+          "affected_scope": "foreground_layer",
+          "preserve_scope": "background_and_geometry"
+        }
+      ]
+    }
+  },
+  "combination_prompts": [
+    {
+      "id": "scene_glass_reflection",
+      "problems": [
+        "background_context",
+        "glass_reflection"
+      ],
+      "severity": "combination",
+      "method": "generative",
+      "factors": [
+        "background_context",
+        "glass_reflection"
+      ],
+      "allows_camera_change": false,
+      "scene_rationale": "A storefront, cabinet, or indoor window explains the glass plane, reflections, and layered background.",
+      "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene.",
+      "degradation_prompt": "Generate a foreground glass pane with a visible frame and add a clear environmental reflection on the glass."
+    },
+    {
+      "id": "real_capture_stack",
+      "problems": [
+        "background_context",
+        "shadow",
+        "glass_reflection",
+        "digital_degradation"
+      ],
+      "severity": "stress",
+      "method": "hybrid",
+      "factors": [
+        "background_context",
+        "shadow",
+        "glass_reflection",
+        "digital_degradation"
+      ],
+      "postprocess": {
+        "type": "digital",
+        "parameters": {
+          "short_edge": 256,
+          "gaussian_radius": 0.5,
+          "noise_std": 2,
+          "jpeg_quality": 75
+        }
+      },
+      "allows_camera_change": false,
+      "parameters": {
+        "short_edge": 256,
+        "gaussian_radius": 0.5,
+        "noise_std": 2,
+        "jpeg_quality": 75
+      },
+      "scene_rationale": "A normal handheld indoor or storefront capture explains the support, soft light, glass reflection, and moderate digital softness.",
+      "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene.",
+      "degradation_prompt": "Generate a foreground glass pane with a visible edge or frame and add a strong environmental reflection that partially obscures the object."
+    }
+  ],
+  "sampling_recommendation": {
+    "background_only_control_in_main_ranking": false,
+    "generative_seeds": 3,
+    "instruction": "Generate GT from gt_prompt first, then generate degraded from that GT using degradation_prompt. Record both prompts, inputs, outputs, postprocess, scene_rationale, sampled placeholders and masks."
+  },
+  "pair_generation": {
+    "mode": "two_stage",
+    "gt_field": "gt_prompt",
+    "degradation_field": "degradation_prompt",
+    "degraded_input": "gt",
+    "require_same_scene": true
+  },
+  "global_degradation_suffix": "Use the GT scene unchanged. Preserve object geometry, camera, framing, support, background and unaffected pixels. Add only the specified degradation.",
+  "parameter_sampling": {
+    "enabled": true,
+    "seed_derivation": "sha256(global_seed + object_id + task_id + scene_instance_id)",
+    "record_realized_parameters": true,
+    "distributions": {
+      "continuous": "uniform",
+      "integer": "integer_uniform",
+      "choices": "discrete_uniform"
+    }
+  },
+  "prompt_identity": {
+    "namespace": "gate3dgen",
+    "family": "pair_synthesis",
+    "release": "1.0"
+  }
+}

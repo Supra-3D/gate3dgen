@@ -1,0 +1,49 @@
+{
+  "pair_id": "b1fefe50851cda020a0b70df973671dd",
+  "sha256": "demo_asset_01", "source_asset_id": "0a648b5b6efa423ab84c13dc77012953", "parameter_sampling_asset_id": "0a648b5b6efa423ab84c13dc77012953",
+  "task_id": "underexposure_heavy",
+  "task_version": "7.0.0-real-scene-compact",
+  "view_id": "albedo/003",
+  "view_slot": 3,
+  "primary_coarse": "character",
+  "primary_fine": "figurine_statue",
+  "method": "hybrid",
+  "model": "firered-image-edit-1.1",
+  "dimensions": [
+    1024,
+    1024
+  ],
+  "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene. Scene specification (scene_dim_room): A natural dim room, hallway or workshop at dusk with a weak practical light and visible depth. Foreground elements: . Support: . Midground elements: . Background elements: receding room or hallway, weak lamp, walls and subtle furniture. Light source: . Camera context: static handheld-camera viewpoint, normal perspective, complete object visible. GT lighting: even recoverable neutral illumination on the object with no crushed detail. GT exclusions: no black background, no underexposure, no crushed blacks, no color cast, no crop.",
+  "degradation_prompt": "Apply strong global underexposure with substantial but recoverable shadow clipping. The input GT already contains the complete scene. Keep its background, support, camera, framing and all unaffected pixels unchanged. Do not add, remove, replace or redesign any background element. Apply only the named degradation. Use the input image as the exact scene reference. Preserve the same camera viewpoint, framing, object silhouette, object position, support, background layout, background details and lighting context. Add only the requested degradation. Do not reconstruct, redesign, recompose or replace the scene. Use the GT scene unchanged. Preserve object geometry, camera, framing, support, background and unaffected pixels. Add only the specified degradation.",
+  "degradation_strategy": "gt_then_local_postprocess",
+  "degradation_type": "underexposure",
+  "preserve_scope": "background_and_geometry",
+  "affected_scope": "global_capture",
+  "global_seed": 42,
+  "pair_seed": 3355814279536082589,
+  "accepted_attempt_seed": 6397245432700247103,
+  "cfg_scale": 4.0,
+  "steps": 40,
+  "parameters": {
+    "black_threshold": 22,
+    "dark_noise_std": 4.012607,
+    "gain": 0.468459
+  },
+  "basic_audit": {
+    "degraded_sha256": "0d0dd9f030d7a4545926fe7a4d47082ed7503d56c18c1f9092f3c204000d52d7",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "gt_sha256": "baa0d0353e1967b40a566b9261c446b836167e7d51fd046698c3c9171c3c343e",
+    "mask_sha256": "116c09d0580a67212ca7bf4220231c1f091a50d7458e39086ee27ec8d4f75bc9",
+    "procedural_replay": "pixel_exact",
+    "status": "pass"
+  },
+  "source_relative_path": "renders_crossview/demo_asset_01/albedo/003.png",
+  "gt_relative_path": "pairs/b1fefe50851cda020a0b70df973671dd/gt.png",
+  "degraded_relative_path": "pairs/b1fefe50851cda020a0b70df973671dd/degraded.png",
+  "quality_status": "not_audited",
+  "status": "success",
+  "provenance": "Historical FireRed pair from the paper Part-A figure pack; full VLM audit records are not bundled"
+}

@@ -1,0 +1,42 @@
+{
+  "asset_id": "demo_asset_01", "source_asset_id": "0a648b5b6efa423ab84c13dc77012953",
+  "name": "Porcelain figurine of a woman",
+  "creator": "The Hunt Museum",
+  "creator_url": "https://sketchfab.com/TheHuntMuseum",
+  "source_url": "https://sketchfab.com/3d-models/porcelain-figurine-of-a-woman-0a648b5b6efa423ab84c13dc77012953",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "verification": {
+    "date": "2026-10-12",
+    "source": "https://api.sketchfab.com/v3/models/0a648b5b6efa423ab84c13dc77012953",
+    "upstream_license_label": "CC Attribution"
+  },
+  "dataset": {
+    "name": "TexVerse",
+    "url": "https://huggingface.co/datasets/YiboZhang2001/TexVerse",
+    "database_license": "ODC-BY 1.0",
+    "database_license_url": "https://opendatacommons.org/licenses/by/1-0/"
+  },
+  "rendering": {
+    "projection": "orthographic",
+    "pass": "albedo",
+    "selected_views": [
+      "006",
+      "007",
+      "000",
+      "003"
+    ],
+    "selection": "Maintainer-selected historical figure views; no new VLM selection claim"
+  },
+  "modifications": [
+    "Orthographic albedo rendering by Gate3DGen authors",
+    "FireRed-Image-Edit-1.1 clean-scene generation from each albedo",
+    "Matched degradation generation from each clean scene"
+  ],
+  "covered_files": [
+    "data/renders_crossview/demo_asset_01/albedo/*.png",
+    "train/pairs/*/gt.png",
+    "train/pairs/*/degraded.png"
+  ],
+  "no_endorsement": "No endorsement by The Hunt Museum is implied."
+}

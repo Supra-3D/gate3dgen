@@ -1,0 +1,44 @@
+{
+  "pair_id": "f2c98e479096c5e7e437912d77efe1df",
+  "sha256": "demo_asset_01", "source_asset_id": "0a648b5b6efa423ab84c13dc77012953", "parameter_sampling_asset_id": "0a648b5b6efa423ab84c13dc77012953",
+  "task_id": "shadow_hard_heavy",
+  "task_version": "7.0.0-real-scene-compact",
+  "view_id": "albedo/006",
+  "view_slot": 0,
+  "primary_coarse": "character",
+  "primary_fine": "figurine_statue",
+  "method": "generative",
+  "model": "firered-image-edit-1.1",
+  "dimensions": [
+    1024,
+    1024
+  ],
+  "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene. Scene specification (scene_shadow_window): A natural indoor room near a large window, with a matte wooden or neutral support and a pale wall. Foreground elements: . Support: . Midground elements: . Background elements: matte support, pale wall, large window outside the frame, subtle natural depth and perspective. Light source: . Camera context: static eye-level camera, medium close-up, complete object visible. GT lighting: broad, even, neutral illumination on the visible object surface with no attached shadow. GT exclusions: no attached shadow on the object, no dirt, no reflection, no glare, no crop, no exposure degradation.",
+  "degradation_prompt": "Create strong uneven directional lighting across the object surface. Add deep attached self-shadowing in the recessed, side-facing and occluded areas, with a clear light-to-dark gradient and natural edge transitions. Keep the object geometry, material and intrinsic color unchanged. Do not add shadows to the background, floor, wall or support. The input GT already contains the complete scene. Keep its background, support, camera, framing and all unaffected pixels unchanged. Do not add, remove, replace or redesign any background element. Apply only the named degradation. Use the input image as the exact scene reference. Preserve the same camera viewpoint, framing, object silhouette, object position, support, background layout, background details and lighting context. Add only the requested degradation. Do not reconstruct, redesign, recompose or replace the scene. Use the GT scene unchanged. Preserve object geometry, camera, framing, support, background and unaffected pixels. Add only the specified degradation.",
+  "degradation_strategy": "gt_then_local_api_edit",
+  "degradation_type": "shadow",
+  "preserve_scope": "background_and_geometry",
+  "affected_scope": "object_only",
+  "global_seed": 42,
+  "pair_seed": 8665451942964874940,
+  "accepted_attempt_seed": 4980840741490457274,
+  "cfg_scale": 4.0,
+  "steps": 40,
+  "parameters": {},
+  "basic_audit": {
+    "degraded_sha256": "6a5b61da891a6dd2c31b710d8144d8412dadd4b09b631f3731ca8d6c4f94d1b7",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "gt_sha256": "b3de9d502b63e43047e28a9c8641377c7296df51a3e541ccca0b550992bd9273",
+    "protected_background_max_abs_diff": 0,
+    "status": "pass"
+  },
+  "source_relative_path": "renders_crossview/demo_asset_01/albedo/006.png",
+  "gt_relative_path": "pairs/f2c98e479096c5e7e437912d77efe1df/gt.png",
+  "degraded_relative_path": "pairs/f2c98e479096c5e7e437912d77efe1df/degraded.png",
+  "quality_status": "not_audited",
+  "status": "success",
+  "provenance": "Historical FireRed pair from the paper Part-A figure pack; full VLM audit records are not bundled"
+}

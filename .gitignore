@@ -1,0 +1,41 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+build/
+dist/
+
+# Runtime artifacts
+/data/
+/outputs/
+assets/examples/local
+logs/
+wandb/
+runs/
+*.log
+*.pid
+
+# Model weights live on Hugging Face, never in this source repository.
+/checkpoints/
+/Gate3DGen-hf-upload/
+*.safetensors
+*.ckpt
+*.bin
+*.pt
+*.pth
+.cache/
+.env
+.env.*
+
+# Local third-party checkouts
+third_party/
+
+# Editors and OS files
+.idea/
+.vscode/
+.DS_Store
+._*
+

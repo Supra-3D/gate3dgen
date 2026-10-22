@@ -1,0 +1,3081 @@
+{
+  "ablation_table_checks": {
+    "complete_table_source_binding": false,
+    "label": "tab:ablate_editor",
+    "note": "Numeric matches alone do not prove the paper's A/B/Full loss and conditioning contracts.",
+    "rows": [
+      {
+        "row": "A",
+        "status": "source_not_bound"
+      },
+      {
+        "all_cells_match": false,
+        "candidate_report_method": "Gate-B ablate (affected L1 + subject grad = 0)",
+        "cell_matches": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ],
+        "paper_cells": [
+          "0.1363",
+          "22.572",
+          "0.755",
+          "11.96",
+          "0.755",
+          "1.1210",
+          "0.1658",
+          "0.1716"
+        ],
+        "report_cells": [
+          "0.1363",
+          "22.572",
+          "0.755",
+          "11.96",
+          "0.755",
+          "1.1214",
+          "0.6764",
+          "0.6549"
+        ],
+        "row": "B",
+        "status": "numeric_candidate_only",
+        "training_contract_verified": false
+      },
+      {
+        "all_cells_match": true,
+        "candidate_report_method": "Gate-B mmDiT",
+        "cell_matches": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "paper_cells": [
+          "0.1378",
+          "22.514",
+          "0.764",
+          "11.96",
+          "0.765",
+          "1.1205",
+          "0.1654",
+          "0.1714"
+        ],
+        "report_cells": [
+          "0.1378",
+          "22.514",
+          "0.764",
+          "11.96",
+          "0.765",
+          "1.1205",
+          "0.1654",
+          "0.1714"
+        ],
+        "row": "Full",
+        "status": "numeric_candidate_only",
+        "training_contract_verified": false
+      }
+    ]
+  },
+  "audit_assistance": {
+    "doi": "https://doi.org/10.48550/arXiv.2609.00065",
+    "human_approval": "pending",
+    "reference": "Kassis, T., Agarwal, V., He, Y., Patel, D., and Brueckner, A. M. (2026). Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents. arXiv:2609.00065.",
+    "verified_arxiv_version": "v2",
+    "workflow": "scientific-writing evidence binding; local processing only"
+  },
+  "geometry_source_audits": [
+    {
+      "backend": "pixal3d",
+      "condition": "clean_gt",
+      "method": "Gate-B mmDiT",
+      "metric_checks": [
+        {
+          "mean": 0.0007530341084830106,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.01074708226360578,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.0007532202308074701,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.10086054037161217,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1082,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "degraded",
+      "method": "Gate-B mmDiT",
+      "metric_checks": [
+        {
+          "mean": 0.001221075587594668,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.00936811201967684,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.0012211811089314147,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.0882100075279061,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1082,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s01",
+      "method": "Gate-B mmDiT",
+      "metric_checks": [
+        {
+          "mean": 0.0010907605074899963,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.010161539837463965,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.0010910696993734004,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.09588468051576794,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1082,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "trellis2",
+      "condition": "clean_gt",
+      "method": "Gate-B mmDiT",
+      "metric_checks": [
+        {
+          "mean": 0.0005166726920997375,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1081
+        },
+        {
+          "mean": 0.012456252000363526,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1081
+        },
+        {
+          "mean": 0.0005168581505339373,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1081
+        },
+        {
+          "mean": 0.1158566058134256,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1081
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "None",
+          "method": "None",
+          "records": 1,
+          "rendered": "None",
+          "samples": "1000000"
+        },
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1081,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "trellis2",
+      "condition": "degraded",
+      "method": "Gate-B mmDiT",
+      "metric_checks": [
+        {
+          "mean": 0.0019843044403065426,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1079
+        },
+        {
+          "mean": 0.011520477660625677,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1079
+        },
+        {
+          "mean": 0.0019850613774422816,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1079
+        },
+        {
+          "mean": 0.10530796976690412,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1079
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "None",
+          "method": "None",
+          "records": 3,
+          "rendered": "None",
+          "samples": "1000000"
+        },
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1079,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s01",
+      "method": "Gate-B mmDiT",
+      "metric_checks": [
+        {
+          "mean": 0.0007643940021544667,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.011963414534124528,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.000764596811633416,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.11204800530133018,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1082,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s01",
+      "method": "Gate-B ablate (affected L1 + subject grad = 0)",
+      "metric_checks": [
+        {
+          "mean": 0.0010630660199012225,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.010158155849004135,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.0010632734898949542,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.09565366203689768,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1082,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s01",
+      "method": "Gate-B ablate (affected L1 + subject grad = 0)",
+      "metric_checks": [
+        {
+          "mean": 0.0007547355222700751,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1081
+        },
+        {
+          "mean": 0.01196458453122788,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1081
+        },
+        {
+          "mean": 0.0007550625067717498,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1081
+        },
+        {
+          "mean": 0.1121408244697447,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1081
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "None",
+          "method": "None",
+          "records": 1,
+          "rendered": "None",
+          "samples": "1000000"
+        },
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1081,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s40",
+      "method": "FireRed 1.1",
+      "metric_checks": [
+        {
+          "mean": 0.0011484982558116026,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.009116999071306277,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.0011489062212753402,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.08639363916573753,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1082,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s40",
+      "method": "FireRed 1.1",
+      "metric_checks": [
+        {
+          "mean": 0.0008349949135677987,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1080
+        },
+        {
+          "mean": 0.010584356350438223,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1080
+        },
+        {
+          "mean": 0.0008352616411800905,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1080
+        },
+        {
+          "mean": 0.09888527698095911,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1080
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "None",
+          "method": "None",
+          "records": 2,
+          "rendered": "None",
+          "samples": "1000000"
+        },
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1080,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s40",
+      "method": "Qwen-Image-Edit-2511",
+      "metric_checks": [
+        {
+          "mean": 0.0011498680546644547,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.009290100988664387,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.0011502513308732614,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.08756551407433036,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1082,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s40",
+      "method": "Qwen-Image-Edit-2511",
+      "metric_checks": [
+        {
+          "mean": 0.0010473671225977607,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.010808851874918979,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.0010474868301204063,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.10123411365843393,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1082,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s30",
+      "method": "FLUX.1-Kontext-dev",
+      "metric_checks": [
+        {
+          "mean": 0.001213572132913489,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.009064916057986913,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.0012138520264102649,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.08582156294218561,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1082,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s30",
+      "method": "FLUX.1-Kontext-dev",
+      "metric_checks": [
+        {
+          "mean": 0.0015279742879982239,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1074
+        },
+        {
+          "mean": 0.011055661303668526,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1074
+        },
+        {
+          "mean": 0.0015283235388634017,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1074
+        },
+        {
+          "mean": 0.10237781872053811,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1074
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "None",
+          "method": "None",
+          "records": 8,
+          "rendered": "None",
+          "samples": "1000000"
+        },
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1074,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s30",
+      "method": "MAGE Flow Edit RL-Aligned",
+      "metric_checks": [
+        {
+          "mean": 0.0012592956842159759,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.008875399863936281,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.0012594172776499671,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.08428044136925052,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1082,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s30",
+      "method": "MAGE Flow Edit RL-Aligned",
+      "metric_checks": [
+        {
+          "mean": 0.00138632790950666,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1071
+        },
+        {
+          "mean": 0.011415926578842845,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1071
+        },
+        {
+          "mean": 0.001386354947037602,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1071
+        },
+        {
+          "mean": 0.104219850322356,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1071
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "None",
+          "method": "None",
+          "records": 11,
+          "rendered": "None",
+          "samples": "1000000"
+        },
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1071,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s50",
+      "method": "Step1X-Edit v1.2",
+      "metric_checks": [
+        {
+          "mean": 0.0014113986163819192,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1079
+        },
+        {
+          "mean": 0.00878940204740669,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1079
+        },
+        {
+          "mean": 0.0014115665409909542,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1079
+        },
+        {
+          "mean": 0.08288523315649665,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1079
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "None",
+          "method": "None",
+          "records": 3,
+          "rendered": "None",
+          "samples": "1000000"
+        },
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1079,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s50",
+      "method": "Step1X-Edit v1.2",
+      "metric_checks": [
+        {
+          "mean": 0.0012284368401424936,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1078
+        },
+        {
+          "mean": 0.010482508119113814,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1078
+        },
+        {
+          "mean": 0.0012286435929349782,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1078
+        },
+        {
+          "mean": 0.0963669318830417,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1078
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "None",
+          "method": "None",
+          "records": 4,
+          "rendered": "None",
+          "samples": "1000000"
+        },
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1078,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s50",
+      "method": "OmniGen2",
+      "metric_checks": [
+        {
+          "mean": 0.003204273827906393,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1063
+        },
+        {
+          "mean": 0.006001466232332722,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1063
+        },
+        {
+          "mean": 0.0032039933924005765,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1063
+        },
+        {
+          "mean": 0.056997201024732415,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1063
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "None",
+          "method": "None",
+          "records": 19,
+          "rendered": "None",
+          "samples": "1000000"
+        },
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1063,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s50",
+      "method": "OmniGen2",
+      "metric_checks": [
+        {
+          "mean": 0.0034847754423291944,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1057
+        },
+        {
+          "mean": 0.00688072228916591,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1057
+        },
+        {
+          "mean": 0.003484793619374629,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1057
+        },
+        {
+          "mean": 0.06407068254138294,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1057
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "None",
+          "method": "None",
+          "records": 25,
+          "rendered": "None",
+          "samples": "1000000"
+        },
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1057,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s01",
+      "method": "gpt-image-2.5-flare",
+      "metric_checks": [
+        {
+          "mean": 0.0014673217496905101,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.008286935650146402,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.001467557959051582,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        },
+        {
+          "mean": 0.07864417348815615,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1082
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1082,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s01",
+      "method": "gpt-image-2.5-flare",
+      "metric_checks": [
+        {
+          "mean": 0.0011786359681937788,
+          "metric": "mesh_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1078
+        },
+        {
+          "mean": 0.010389203909770085,
+          "metric": "mesh_distance_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1078
+        },
+        {
+          "mean": 0.0011787476076199406,
+          "metric": "outer_shell_chamfer_distance",
+          "report_matches_source_rows": true,
+          "valid_cases": 1078
+        },
+        {
+          "mean": 0.09719516322112833,
+          "metric": "outer_shell_fscore",
+          "report_matches_source_rows": true,
+          "valid_cases": 1078
+        }
+      ],
+      "protocol_counts": [
+        {
+          "exact": "None",
+          "method": "None",
+          "records": 4,
+          "rendered": "None",
+          "samples": "1000000"
+        },
+        {
+          "exact": "False",
+          "method": "surface",
+          "records": 1078,
+          "rendered": "False",
+          "samples": "1000000"
+        }
+      ],
+      "source_summary_hash_bindings": [
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "legacy"
+        },
+        {
+          "recorded_summary_hash_matches": true,
+          "split": "dtcplus"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "No images, source paths or case IDs are included.",
+    "Legacy PBR count mixes case and view units; it is preserved, never converted to valid-view coverage.",
+    "Table 5 A is not bound by this comparison report; ablation names do not prove a matching training contract.",
+    "Numerical table agreement does not validate the method definitions or complete/common populations."
+  ],
+  "paper_table_checks": [
+    {
+      "all_reported_cells_match": true,
+      "backend": "trellis2",
+      "label": "tab:three_d_quality",
+      "rows": [
+        {
+          "paper_cells": [
+            "0.517",
+            "12.46",
+            "0.517",
+            "1.1586",
+            "16.36",
+            "0.1548",
+            "0.1575"
+          ],
+          "report_cells": [
+            "0.517",
+            "12.46",
+            "0.517",
+            "1.1586",
+            "16.36",
+            "0.1548",
+            "0.1575"
+          ],
+          "row": "Clean reference (Oracle)",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "1.984",
+            "11.52",
+            "1.985",
+            "1.0531",
+            "15.26",
+            "0.1857",
+            "0.1916"
+          ],
+          "report_cells": [
+            "1.984",
+            "11.52",
+            "1.985",
+            "1.0531",
+            "15.26",
+            "0.1857",
+            "0.1916"
+          ],
+          "row": "Degraded (Input)",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "1.528",
+            "11.06",
+            "1.528",
+            "1.0238",
+            "15.35",
+            "0.1864",
+            "0.1935"
+          ],
+          "report_cells": [
+            "1.528",
+            "11.06",
+            "1.528",
+            "1.0238",
+            "15.35",
+            "0.1864",
+            "0.1935"
+          ],
+          "row": "FLUX.1",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "3.485",
+            "6.88",
+            "3.485",
+            "0.6407",
+            "13.11",
+            "0.2362",
+            "0.2411"
+          ],
+          "report_cells": [
+            "3.485",
+            "6.88",
+            "3.485",
+            "0.6407",
+            "13.11",
+            "0.2362",
+            "0.2411"
+          ],
+          "row": "OmniGen2",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "1.228",
+            "10.48",
+            "1.229",
+            "0.9637",
+            "15.25",
+            "0.1803",
+            "0.1861"
+          ],
+          "report_cells": [
+            "1.228",
+            "10.48",
+            "1.229",
+            "0.9637",
+            "15.25",
+            "0.1803",
+            "0.1861"
+          ],
+          "row": "Step1X",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "1.047",
+            "10.81",
+            "1.047",
+            "1.0123",
+            "15.69",
+            "0.1780",
+            "0.1859"
+          ],
+          "report_cells": [
+            "1.047",
+            "10.81",
+            "1.047",
+            "1.0123",
+            "15.69",
+            "0.1780",
+            "0.1859"
+          ],
+          "row": "Qwen-Image-Edit",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "1.386",
+            "11.42",
+            "1.386",
+            "1.0422",
+            "15.39",
+            "0.1797",
+            "0.1855"
+          ],
+          "report_cells": [
+            "1.386",
+            "11.42",
+            "1.386",
+            "1.0422",
+            "15.39",
+            "0.1797",
+            "0.1855"
+          ],
+          "row": "Mage-Flow",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "1.179",
+            "10.39",
+            "1.179",
+            "0.9720",
+            "15.29",
+            "0.1792",
+            "0.1859"
+          ],
+          "report_cells": [
+            "1.179",
+            "10.39",
+            "1.179",
+            "0.9720",
+            "15.29",
+            "0.1792",
+            "0.1859"
+          ],
+          "row": "GPT Image-2.5 Flare",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "0.835",
+            "10.58",
+            "0.835",
+            "0.9889",
+            "15.82",
+            "0.1701",
+            "0.1781"
+          ],
+          "report_cells": [
+            "0.835",
+            "10.58",
+            "0.835",
+            "0.9889",
+            "15.82",
+            "0.1701",
+            "0.1781"
+          ],
+          "row": "FireRed",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "0.764",
+            "11.96",
+            "0.765",
+            "1.1205",
+            "15.98",
+            "0.1654",
+            "0.1714"
+          ],
+          "report_cells": [
+            "0.764",
+            "11.96",
+            "0.765",
+            "1.1205",
+            "15.98",
+            "0.1654",
+            "0.1714"
+          ],
+          "row": "Ours",
+          "status": "match"
+        }
+      ]
+    },
+    {
+      "all_reported_cells_match": true,
+      "backend": "pixal3d",
+      "label": "tab:pixal3d_quality",
+      "rows": [
+        {
+          "paper_cells": [
+            "1.221",
+            "9.37",
+            "1.221",
+            "0.8821",
+            "10.31",
+            "0.2824",
+            "0.2805"
+          ],
+          "report_cells": [
+            "1.221",
+            "9.37",
+            "1.221",
+            "0.8821",
+            "10.31",
+            "0.2824",
+            "0.2805"
+          ],
+          "row": "Degraded (Input)",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "0.753",
+            "10.75",
+            "0.753",
+            "1.0086",
+            "10.42",
+            "0.2760",
+            "0.2713"
+          ],
+          "report_cells": [
+            "0.753",
+            "10.75",
+            "0.753",
+            "1.0086",
+            "10.42",
+            "0.2760",
+            "0.2713"
+          ],
+          "row": "Clean reference (Oracle)",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "1.214",
+            "9.06",
+            "1.214",
+            "0.8582",
+            "10.26",
+            "0.2916",
+            "0.2906"
+          ],
+          "report_cells": [
+            "1.214",
+            "9.06",
+            "1.214",
+            "0.8582",
+            "10.26",
+            "0.2916",
+            "0.2906"
+          ],
+          "row": "FLUX.1",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "1.259",
+            "8.88",
+            "1.259",
+            "0.8428",
+            "10.30",
+            "0.2883",
+            "0.2864"
+          ],
+          "report_cells": [
+            "1.259",
+            "8.88",
+            "1.259",
+            "0.8428",
+            "10.30",
+            "0.2883",
+            "0.2864"
+          ],
+          "row": "Mage-Flow",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "3.204",
+            "6.00",
+            "3.204",
+            "0.5700",
+            "10.03",
+            "0.3051",
+            "0.3047"
+          ],
+          "report_cells": [
+            "3.204",
+            "6.00",
+            "3.204",
+            "0.5700",
+            "10.03",
+            "0.3051",
+            "0.3047"
+          ],
+          "row": "OmniGen2",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "1.411",
+            "8.79",
+            "1.412",
+            "0.8289",
+            "10.20",
+            "0.2911",
+            "0.2897"
+          ],
+          "report_cells": [
+            "1.411",
+            "8.79",
+            "1.412",
+            "0.8289",
+            "10.20",
+            "0.2911",
+            "0.2897"
+          ],
+          "row": "Step1X",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "1.467",
+            "8.29",
+            "1.468",
+            "0.7864",
+            "10.53",
+            "0.2825",
+            "0.2836"
+          ],
+          "report_cells": [
+            "1.467",
+            "8.29",
+            "1.468",
+            "0.7864",
+            "10.53",
+            "0.2825",
+            "0.2836"
+          ],
+          "row": "GPT Image-2.5 Flare",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "1.150",
+            "9.29",
+            "1.150",
+            "0.8757",
+            "10.31",
+            "0.2889",
+            "0.2883"
+          ],
+          "report_cells": [
+            "1.150",
+            "9.29",
+            "1.150",
+            "0.8757",
+            "10.31",
+            "0.2889",
+            "0.2883"
+          ],
+          "row": "Qwen-Image-Edit",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "1.148",
+            "9.12",
+            "1.149",
+            "0.8639",
+            "10.77",
+            "0.2759",
+            "0.2775"
+          ],
+          "report_cells": [
+            "1.148",
+            "9.12",
+            "1.149",
+            "0.8639",
+            "10.77",
+            "0.2759",
+            "0.2775"
+          ],
+          "row": "FireRed",
+          "status": "match"
+        },
+        {
+          "paper_cells": [
+            "1.091",
+            "10.16",
+            "1.091",
+            "0.9588",
+            "10.36",
+            "0.2796",
+            "0.2773"
+          ],
+          "report_cells": [
+            "1.091",
+            "10.16",
+            "1.091",
+            "0.9588",
+            "10.36",
+            "0.2796",
+            "0.2773"
+          ],
+          "row": "Ours",
+          "status": "match"
+        }
+      ]
+    }
+  ],
+  "pbr_source_rows_verified": false,
+  "population": {
+    "dtcplus_cases_excluded": 10,
+    "dtcplus_cases_included": 720,
+    "dtcplus_cases_total": 730,
+    "legacy_cases": 362,
+    "total_cases": 1082
+  },
+  "reported_rows": [
+    {
+      "backend": "pixal3d",
+      "condition": "clean_gt",
+      "method": "Gate-B mmDiT",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.2713075793191598,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4328,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0007530341084830104,
+          "valid_cases": 1082
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.010747082263605776,
+          "valid_cases": 1082
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 10.421610853035213,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4328,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0007532202308074694,
+          "valid_cases": 1082
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.1008605403716122,
+          "valid_cases": 1082
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.27596417920364413,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4328,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "degraded",
+      "method": "Gate-B mmDiT",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.28049310251671045,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4328,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0012210755875946677,
+          "valid_cases": 1082
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.009368112019676834,
+          "valid_cases": 1082
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 10.305145141668575,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4328,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0012211811089314138,
+          "valid_cases": 1082
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.08821000752790613,
+          "valid_cases": 1082
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.2823719811744561,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4328,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s01",
+      "method": "Gate-B mmDiT",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.27726209787789613,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4328,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.001090760507489995,
+          "valid_cases": 1082
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.010161539837463972,
+          "valid_cases": 1082
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 10.362434506082595,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4328,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0010910696993733993,
+          "valid_cases": 1082
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.09588468051576796,
+          "valid_cases": 1082
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.27959388550267644,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4328,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "trellis2",
+      "condition": "clean_gt",
+      "method": "Gate-B mmDiT",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.15751434448752363,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4324,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0005166726920997378,
+          "valid_cases": 1081
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.012456252000363531,
+          "valid_cases": 1081
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 16.357868610256336,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4324,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0005168581505339378,
+          "valid_cases": 1081
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.11585660581342554,
+          "valid_cases": 1081
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.1548147983258895,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4324,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "trellis2",
+      "condition": "degraded",
+      "method": "Gate-B mmDiT",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.191609102425591,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4316,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0019843044403065405,
+          "valid_cases": 1079
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.011520477660625665,
+          "valid_cases": 1079
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 15.257204221607044,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4316,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0019850613774422808,
+          "valid_cases": 1079
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.10530796976690408,
+          "valid_cases": 1079
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.18565105335688542,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4316,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s01",
+      "method": "Gate-B mmDiT",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.17136585137586482,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4328,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0007643940021544668,
+          "valid_cases": 1082
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.01196341453412452,
+          "valid_cases": 1082
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 15.98147234259106,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4328,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0007645968116334168,
+          "valid_cases": 1082
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.1120480053013302,
+          "valid_cases": 1082
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.16544157586468455,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4328,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s01",
+      "method": "Gate-B ablate (affected L1 + subject grad = 0)",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.6774669151319374,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 1082,
+          "reported_records": 1082,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0010630660199012225,
+          "valid_cases": 1082
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.010158155849004135,
+          "valid_cases": 1082
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 7.379958935280396,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 1082,
+          "reported_records": 1082,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0010632734898949542,
+          "valid_cases": 1082
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.09565366203689768,
+          "valid_cases": 1082
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.7019180791545487,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 1082,
+          "reported_records": 1082,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s01",
+      "method": "Gate-B ablate (affected L1 + subject grad = 0)",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.6549282416108578,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 1081,
+          "reported_records": 1082,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.000754735522270075,
+          "valid_cases": 1081
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.01196458453122788,
+          "valid_cases": 1081
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 7.851878343452342,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 1081,
+          "reported_records": 1082,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0007550625067717498,
+          "valid_cases": 1081
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.1121408244697447,
+          "valid_cases": 1081
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.6763655110490642,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 1081,
+          "reported_records": 1082,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s40",
+      "method": "FireRed 1.1",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.27746522543330987,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 1800,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.001148498255811605,
+          "valid_cases": 1082
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.00911699907130627,
+          "valid_cases": 1082
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 10.77462825103894,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 1800,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0011489062212753397,
+          "valid_cases": 1082
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.08639363916573756,
+          "valid_cases": 1082
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.2759110422101286,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 1800,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s40",
+      "method": "FireRed 1.1",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.17811685061832477,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4320,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0008349949135677985,
+          "valid_cases": 1080
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.010584356350438221,
+          "valid_cases": 1080
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 15.823062616331983,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4320,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0008352616411800903,
+          "valid_cases": 1080
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.09888527698095917,
+          "valid_cases": 1080
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.17011871518981125,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4320,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s40",
+      "method": "Qwen-Image-Edit-2511",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.2883097799208302,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 520,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0011498680546644547,
+          "valid_cases": 1082
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.009290100988664389,
+          "valid_cases": 1082
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 10.306395142275568,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 520,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0011502513308732612,
+          "valid_cases": 1082
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.08756551407433036,
+          "valid_cases": 1082
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.28885667498868245,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 520,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s40",
+      "method": "Qwen-Image-Edit-2511",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.18587890530178106,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4328,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.001047367122597761,
+          "valid_cases": 1082
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.010808851874918979,
+          "valid_cases": 1082
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 15.689736349639901,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4328,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0010474868301204063,
+          "valid_cases": 1082
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.10123411365843395,
+          "valid_cases": 1082
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.1780273101506445,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4328,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s30",
+      "method": "FLUX.1-Kontext-dev",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.29057048703902044,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 520,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.001213572132913489,
+          "valid_cases": 1082
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.009064916057986913,
+          "valid_cases": 1082
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 10.263256192689344,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 520,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0012138520264102649,
+          "valid_cases": 1082
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.08582156294218561,
+          "valid_cases": 1082
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.29160121576144143,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 520,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s30",
+      "method": "FLUX.1-Kontext-dev",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.19349549402174102,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4296,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0015279742879982239,
+          "valid_cases": 1074
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.011055661303668526,
+          "valid_cases": 1074
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 15.345245748945123,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4296,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0015283235388634017,
+          "valid_cases": 1074
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.10237781872053812,
+          "valid_cases": 1074
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.1864139898485041,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4296,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s30",
+      "method": "MAGE Flow Edit RL-Aligned",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.2864039143690696,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 520,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0012592956842159759,
+          "valid_cases": 1082
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.008875399863936281,
+          "valid_cases": 1082
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 10.298134280696244,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 520,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0012594172776499671,
+          "valid_cases": 1082
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.08428044136925052,
+          "valid_cases": 1082
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.2883472953278285,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 520,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s30",
+      "method": "MAGE Flow Edit RL-Aligned",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.1855044546358837,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4284,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.00138632790950666,
+          "valid_cases": 1071
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.011415926578842845,
+          "valid_cases": 1071
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 15.394240545776965,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4284,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.001386354947037602,
+          "valid_cases": 1071
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.104219850322356,
+          "valid_cases": 1071
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.17967646372183657,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4284,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s50",
+      "method": "Step1X-Edit v1.2",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.2897051197691606,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 520,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0014113986163819192,
+          "valid_cases": 1079
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.00878940204740669,
+          "valid_cases": 1079
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 10.197925401773002,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 520,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0014115665409909542,
+          "valid_cases": 1079
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.08288523315649665,
+          "valid_cases": 1079
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.291101438838702,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 520,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s50",
+      "method": "Step1X-Edit v1.2",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.18609660272512427,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4312,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0012284368401424936,
+          "valid_cases": 1078
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.010482508119113812,
+          "valid_cases": 1078
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 15.249814958020933,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4312,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0012286435929349782,
+          "valid_cases": 1078
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.09636693188304171,
+          "valid_cases": 1078
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.18031144661332976,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4312,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s50",
+      "method": "OmniGen2",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.30472144807956014,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 516,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.003204273827906393,
+          "valid_cases": 1063
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.006001466232332722,
+          "valid_cases": 1063
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 10.030690677427447,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 516,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0032039933924005765,
+          "valid_cases": 1063
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.056997201024732415,
+          "valid_cases": 1063
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.3051218630009612,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 516,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s50",
+      "method": "OmniGen2",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.2410811126864777,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4228,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0034847754423291944,
+          "valid_cases": 1057
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.00688072228916591,
+          "valid_cases": 1057
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 13.10854651117274,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4228,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.003484793619374629,
+          "valid_cases": 1057
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.06407068254138293,
+          "valid_cases": 1057
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.2362376247614608,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 4228,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "pixal3d",
+      "condition": "restored_s01",
+      "method": "gpt-image-2.5-flare",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.28360663402083797,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 457,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0014673217496905093,
+          "valid_cases": 1082
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.008286935650146413,
+          "valid_cases": 1082
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 10.52944850276094,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 457,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0014675579590515825,
+          "valid_cases": 1082
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.07864417348815621,
+          "valid_cases": 1082
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.2824643792083214,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 457,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    },
+    {
+      "backend": "trellis2",
+      "condition": "restored_s01",
+      "method": "gpt-image-2.5-flare",
+      "metrics": {
+        "base_color.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.18589383623530786,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 1078,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "mesh_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0011786359681937777,
+          "valid_cases": 1078
+        },
+        "mesh_distance_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.010389203909770089,
+          "valid_cases": 1078
+        },
+        "normal.psnr_db": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 15.291765711083443,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 1078,
+          "reported_records": 4328,
+          "valid_view_count": null
+        },
+        "outer_shell_chamfer_distance": {
+          "expected_cases": 1082,
+          "mean": 0.0011787476076199404,
+          "valid_cases": 1078
+        },
+        "outer_shell_fscore": {
+          "expected_cases": 1082,
+          "mean": 0.0971951632211284,
+          "valid_cases": 1078
+        },
+        "shaded.lpips_alex": {
+          "complete_four_view_cases": null,
+          "coverage_state": "requires_the_actual_multiview_source_rows",
+          "mean": 0.1792385179103665,
+          "reported_aggregation_unit": "case_macro_after_view_mean",
+          "reported_cases": 1082,
+          "reported_count": 1078,
+          "reported_records": 4328,
+          "valid_view_count": null
+        }
+      }
+    }
+  ],
+  "schema_version": "historical_3d_evidence_v1",
+  "source_sha256": {
+    "comparison_summary": "965e0804edd3b4b400ba64665d678feb8fcbc24c99d5652329c79d7d24c88c3e",
+    "firered.combined_summary": "22e6b51666cd99f1b05681c3431342de4fd11b21dd34fd9fd46a9af294b668e5",
+    "firered.dtcplus.pixal3d.geometry_rows": "7c16dbe0f9658088dd119aadc72ea482c950e74e9e253659bf9ce1b39b1977d7",
+    "firered.dtcplus.summary": "05778d35cc7d8b6856652a34268e426be357b011a39d02a582668abffb969ae8",
+    "firered.dtcplus.trellis2.geometry_rows": "0226433daaa1d6850bc7b2ed6f4a1d76accdd88633b6264c59d56d7ba6e41de1",
+    "firered.excluded_population": "13daa82c17cfddec65e3278a49b51e3f7b44d93543c9ea801aa04e163bc6bb53",
+    "firered.legacy.pixal3d.geometry_rows": "48dad1456899f76d70aee4156441e50bef22699d34de70e044b54ea6e5a748b9",
+    "firered.legacy.summary": "f603ff946db11fd0c44c2f362cd7e198835fd6ec5c75bdd650c237344605c122",
+    "firered.legacy.trellis2.geometry_rows": "b030befac61087a830d62cc0e346c6940077ba24245733426521a6ce3d486d02",
+    "flare.combined_summary": "87c7da1bcb73816196e7af236fbeb834521d9f714777d82e7cc6dcd26456803c",
+    "flare.dtcplus.pixal3d.geometry_rows": "1d36a8fd65117c7d5c763a5055609d0e799be0c6248386cef52f7ee174b45b9b",
+    "flare.dtcplus.summary": "11b28018e8a721a11942c769781540f6830fcb12b69762914030c41a942be6b5",
+    "flare.dtcplus.trellis2.geometry_rows": "ff587d4aa533e0202b58fb9e8396f6406739219e2d0a9d0f870074162afcd832",
+    "flare.excluded_population": "13daa82c17cfddec65e3278a49b51e3f7b44d93543c9ea801aa04e163bc6bb53",
+    "flare.legacy.pixal3d.geometry_rows": "42995d7e55310f8d6d19945a035feb5edb9c65ebffc85fa02892d45ba1fdf36d",
+    "flare.legacy.summary": "aec7da2310f6521f03c6b96261c95169fb0cd0984254faacd599ec685a57afe9",
+    "flare.legacy.trellis2.geometry_rows": "5387eaf46aa6cddb03f68121b14a5ca9c3d006db30e7295951581111c09f6c33",
+    "flux.combined_summary": "a9d5d6a123a675d40c54fb452259f245d505222ac7af6bdeadc8b9a9b2311f39",
+    "flux.dtcplus.pixal3d.geometry_rows": "e5677915bd9b208aeac69f22effafe061d5a7f67abac825399ccaee2c6f0e1c3",
+    "flux.dtcplus.summary": "9a64961051f0ffe1ed1fae601ec1dd81d10d04054fa6ce9b8cff0954669b002c",
+    "flux.dtcplus.trellis2.geometry_rows": "885b618d5df20e88efac1a3bc0e4694d576cc3bd0d317bc7d52cc470b3ca9d54",
+    "flux.excluded_population": "13daa82c17cfddec65e3278a49b51e3f7b44d93543c9ea801aa04e163bc6bb53",
+    "flux.legacy.pixal3d.geometry_rows": "856589e8e7e3105a7c665776360ba3f44672a0142db08af7863c385506c5dee9",
+    "flux.legacy.summary": "5c09bcc32f48318a7d811d6c4cc547945b04258998ec7b8fd6f12087a5a48949",
+    "flux.legacy.trellis2.geometry_rows": "233678c2b18bac3f796af9df9e98a561af7e108c0751463a98b55afb5db1205e",
+    "gate_b.combined_summary": "cc000393f8175935e0b96d710855f44446f00134bfa0c1ca6b448b43c516be16",
+    "gate_b.dtcplus.pixal3d.geometry_rows": "23413a57c43961650847c852a41111adfcc205ca39741e0174e5051d1064aa32",
+    "gate_b.dtcplus.summary": "28c970ba6e61fbab83ebe42a1bec8d04731ae8d4e3a859d4a1f4023aa6db3a13",
+    "gate_b.dtcplus.trellis2.geometry_rows": "ba107a2ea110a1d1f9b3559280323484a04b228d75c0d85cb7d5525da8de7b43",
+    "gate_b.excluded_population": "13daa82c17cfddec65e3278a49b51e3f7b44d93543c9ea801aa04e163bc6bb53",
+    "gate_b.legacy.pixal3d.geometry_rows": "9980170d942ab747d4299ae9fd236cd6df471d1679422e9a92c072f97205c604",
+    "gate_b.legacy.summary": "667d9b83f71126d0aead76013e24c16314d670844bab942be1c4b2e19a678504",
+    "gate_b.legacy.trellis2.geometry_rows": "c3ba050a16ae0cad6511e1a5b64bd42fef6a46035540fa422b12cdb5357d973b",
+    "gate_b_ablate.combined_summary": "a331ac6119419f5e68539a355d5cfabb9023e61cc51789ef135776e57d31c15e",
+    "gate_b_ablate.dtcplus.pixal3d.geometry_rows": "26ab337884faf7c786603a8977cc8070297fb483fd3c36d2b5b7de0d7baf95e4",
+    "gate_b_ablate.dtcplus.summary": "c8a98e7a4d4b931acb1965ca99bc3a02a524b6b30700e26f54d0feae74ea5e91",
+    "gate_b_ablate.dtcplus.trellis2.geometry_rows": "de432fc2ef31f4c1e53b2aa4bf9825491009dfaa78d798aabb5b72f5cb2230cd",
+    "gate_b_ablate.excluded_population": "13daa82c17cfddec65e3278a49b51e3f7b44d93543c9ea801aa04e163bc6bb53",
+    "gate_b_ablate.legacy.pixal3d.geometry_rows": "8e74db6b9275a5143d911a2821f93a59fef4b9dee99e89d09fe2c44328cbf763",
+    "gate_b_ablate.legacy.summary": "a9564ae7f525f9becf5ad4e78e7c07d87e349af6cf0842e719f3716729750027",
+    "gate_b_ablate.legacy.trellis2.geometry_rows": "286c3eadbbd78a6a29b0264864dcc88d153ef7b5da67811968bf2b9709719a0d",
+    "mage.combined_summary": "6f558b3374f1b7be039de83f47e9880b202b9664e2f0598a71bad755f7f8859a",
+    "mage.dtcplus.pixal3d.geometry_rows": "39b7497377974700e3f3b35544b719895bb10b4325ad9503b9bcf3a503db3c5d",
+    "mage.dtcplus.summary": "037c0fe654b4eb581d0fb7a6f89ef6b4c727d94e5eded907ac6b56f55b3b9748",
+    "mage.dtcplus.trellis2.geometry_rows": "d77b33dd4decf47cad6bf9f91f6fce775ebbaef97d8392f520f9b0230ef3401a",
+    "mage.excluded_population": "13daa82c17cfddec65e3278a49b51e3f7b44d93543c9ea801aa04e163bc6bb53",
+    "mage.legacy.pixal3d.geometry_rows": "13796903fbcd778f0d076960b9d80162d40ddd139796a16e8eaf11cdf46b84ad",
+    "mage.legacy.summary": "58a57b2c42ee78f157980a88c9c4884636c11114cff41b431d020486bac8e27f",
+    "mage.legacy.trellis2.geometry_rows": "e8c1ab707927d2fba82991321a2c70b4bc92577d05a82f4761f9708f263780d3",
+    "omnigen2.combined_summary": "f661a3b67edc0fe80d1ee399afb61882c9d43d79ec625d6e3ad7bc47eb826939",
+    "omnigen2.dtcplus.pixal3d.geometry_rows": "cf5b4ea6c0f84701b81447057d25b142aa8a4ddebbeb7b0dcb22dc6b7f4a6263",
+    "omnigen2.dtcplus.summary": "7774ffd94bff57945d210940c0c5c69586f94fd837f2059c2d0a8093e49f7da5",
+    "omnigen2.dtcplus.trellis2.geometry_rows": "dc08a1aa5e0aabd7758d106dd021bb612814afd6ab5bd2ebce710acd142c60b3",
+    "omnigen2.excluded_population": "13daa82c17cfddec65e3278a49b51e3f7b44d93543c9ea801aa04e163bc6bb53",
+    "omnigen2.legacy.pixal3d.geometry_rows": "3c129f399b6427828728e87ca64c73a4b0e9f6970f0b939c8fe8f41f04ec302f",
+    "omnigen2.legacy.summary": "dbf08d83c428c793235790564d38d572396f223466120b5ecf2d4c04974df71e",
+    "omnigen2.legacy.trellis2.geometry_rows": "d1bbed92c89938bab0e1a6fdf86cc843383b7f8db4f79382abae08ac940594ec",
+    "paper_appendix_tex": "4d14f333ae75bedfba6654fb546aeb9b2eafe59bf0efc3b8ff4562e747051ba3",
+    "paper_experiments_tex": "5739b9e5b93e46e9af47404f17eecc821b80cf358e1bb2ab815f9765c46749d2",
+    "qwen.combined_summary": "43dd6422ddcd8147158af5ccc247fda3730d8a1f0e5eb4956d943799401bfe60",
+    "qwen.dtcplus.pixal3d.geometry_rows": "bb86e281e6cb918a62b21807476e547314711a83dad7867859ca19f9429a42a4",
+    "qwen.dtcplus.summary": "edf23d0b37b4f33aaa8042f518f7168e666e40d0c33b3423739b2b368faa4d3b",
+    "qwen.dtcplus.trellis2.geometry_rows": "8805d0c42fa1c3805e68366ca0ba506174f6444b667a77c9a2d3db6d4d6784a2",
+    "qwen.excluded_population": "13daa82c17cfddec65e3278a49b51e3f7b44d93543c9ea801aa04e163bc6bb53",
+    "qwen.legacy.pixal3d.geometry_rows": "2945c7ebe19b3bfd566ff010122196ec23ef4a46a692525e2ab0be124656ac20",
+    "qwen.legacy.summary": "75ba66ac3fc82c12ddf33285c178c75bf48c740f057f63bfc8a4fa9ee02d4e37",
+    "qwen.legacy.trellis2.geometry_rows": "891a3cee4d242a9a99bfcd86e1098cce42aa128eebfc3a72c31c30ec08222b1a",
+    "scripts/run_baseline_dual3d_32gpu.sh": "32b9d3013b8b78e5e4663d7fb156e4e0c9e39721a62f642fcb40ac2de9c7e3f5",
+    "scripts/run_full_benchmark_dual3d_40gpu.sh": "885a8012bd3a3ef840d8be51d85242a5f05637782b610eeb9f08cf739f9c887c",
+    "step1x.combined_summary": "13956ba6ad568b81b4d9f66bfd36de1e79d0a3853947dde27205fa860e4958e7",
+    "step1x.dtcplus.pixal3d.geometry_rows": "86d104f6838500d68c3b472354080fd03bdf944ba2170d2247df0760210ca251",
+    "step1x.dtcplus.summary": "975ca6e41ad1e7706e79d7455a1a70159289f332fb24071c453df7e47d922aa3",
+    "step1x.dtcplus.trellis2.geometry_rows": "7e956dae2737669bf55615bcaaf2e82142f1014350a467d8321acfd92bd3e9b3",
+    "step1x.excluded_population": "13daa82c17cfddec65e3278a49b51e3f7b44d93543c9ea801aa04e163bc6bb53",
+    "step1x.legacy.pixal3d.geometry_rows": "529a0e54f3a340284b3253435efbec1475497cffa22ed0e2e4af4b403dbc5311",
+    "step1x.legacy.summary": "969614701cbd6b62ad060f0570cac77bf6b3c129452a88571b26a10c37390999",
+    "step1x.legacy.trellis2.geometry_rows": "efafef4a08f17afb16fba5aaa5844fa42a5c132190682d3ca71c1c3ba1f4c298",
+    "texverse_eval/metrics3d_official.py": "1efeb67904820ff0846f8b5ba3d24166596ab92a3beb00b7bc51344f8dea2eb7"
+  },
+  "verification": "agent_checked_human_approval_pending"
+}

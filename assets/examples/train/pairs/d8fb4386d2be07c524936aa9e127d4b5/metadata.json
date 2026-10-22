@@ -1,0 +1,48 @@
+{
+  "pair_id": "d8fb4386d2be07c524936aa9e127d4b5",
+  "sha256": "demo_asset_01", "source_asset_id": "0a648b5b6efa423ab84c13dc77012953", "parameter_sampling_asset_id": "0a648b5b6efa423ab84c13dc77012953",
+  "task_id": "overexposure_heavy",
+  "task_version": "7.0.0-real-scene-compact",
+  "view_id": "albedo/007",
+  "view_slot": 1,
+  "primary_coarse": "character",
+  "primary_fine": "figurine_statue",
+  "method": "hybrid",
+  "model": "firered-image-edit-1.1",
+  "dimensions": [
+    1024,
+    1024
+  ],
+  "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene. Scene specification (scene_bright_window): A natural kitchen, office or room near a bright window, with surrounding architecture visible. Foreground elements: . Support: . Midground elements: . Background elements: window or doorway, curtain, blind or wall, subtle exterior depth. Light source: . Camera context: static handheld-camera viewpoint, natural perspective, complete object visible. GT lighting: normal unclipped neutral exposure on the object despite the bright surroundings. GT exclusions: no empty studio, no overexposure, no glare, no color cast, no crop.",
+  "degradation_prompt": "Apply strong global overexposure with bright object regions clipped. The input GT already contains the complete scene. Keep its background, support, camera, framing and all unaffected pixels unchanged. Do not add, remove, replace or redesign any background element. Apply only the named degradation. Use the input image as the exact scene reference. Preserve the same camera viewpoint, framing, object silhouette, object position, support, background layout, background details and lighting context. Add only the requested degradation. Do not reconstruct, redesign, recompose or replace the scene. Use the GT scene unchanged. Preserve object geometry, camera, framing, support, background and unaffected pixels. Add only the specified degradation.",
+  "degradation_strategy": "gt_then_local_postprocess",
+  "degradation_type": "overexposure",
+  "preserve_scope": "background_and_geometry",
+  "affected_scope": "global_capture",
+  "global_seed": 42,
+  "pair_seed": 5968340490407216161,
+  "accepted_attempt_seed": 8209274056966690505,
+  "cfg_scale": 4.0,
+  "steps": 40,
+  "parameters": {
+    "clip_threshold": 227,
+    "gain": 1.853108
+  },
+  "basic_audit": {
+    "degraded_sha256": "f0f8db4b5d040e47ac847bd611c9ee6f40db8972b7d0fc202e6f2332d5d06c87",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "gt_sha256": "1c4d777e0c1f35d7ffb29cec9bf2ef775608614fab3a434cd36703c8931c09b0",
+    "mask_sha256": "a74531f4dc3c27bd0268b1cb64c25c2dd5c189a020df36a53f1b9e6bb30d0b37",
+    "procedural_replay": "pixel_exact",
+    "status": "pass"
+  },
+  "source_relative_path": "renders_crossview/demo_asset_01/albedo/007.png",
+  "gt_relative_path": "pairs/d8fb4386d2be07c524936aa9e127d4b5/gt.png",
+  "degraded_relative_path": "pairs/d8fb4386d2be07c524936aa9e127d4b5/degraded.png",
+  "quality_status": "not_audited",
+  "status": "success",
+  "provenance": "Historical FireRed pair from the paper Part-A figure pack; full VLM audit records are not bundled"
+}

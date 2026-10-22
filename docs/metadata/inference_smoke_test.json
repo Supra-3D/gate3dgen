@@ -1,0 +1,116 @@
+{
+  "schema": "gate3dgen-inference-smoke-v1",
+  "recorded_at_utc": "2026-10-10T17:59:40.052730+00:00",
+  "status": "complete",
+  "scope": "full pretrained single-case cold router-to-purifier inference; not benchmark, warm latency or multi-node training",
+  "profile": {
+    "router_inference_seconds": [
+      2.254360105842352
+    ],
+    "purifier_inference_seconds": [
+      88.72525823116302
+    ],
+    "python": "3.12.13",
+    "packages": {
+      "torch": "2.9.0",
+      "diffusers": "0.36.0",
+      "transformers": "4.57.1",
+      "accelerate": "1.11.0",
+      "safetensors": "0.6.2"
+    },
+    "device": "cuda:0",
+    "protocol": "routed",
+    "seed": 42,
+    "cases": [
+      {
+        "case_id": "demo_01",
+        "input_resolution": [
+          1440,
+          1920
+        ],
+        "output_resolution": [
+          896,
+          1184
+        ],
+        "decision": "PURIFY",
+        "purifier_invoked": true
+      }
+    ],
+    "timing_scope": "cold single-process run; loading separate; purification includes output save",
+    "cuda_runtime": "12.8",
+    "router_load_seconds": 34.96646995097399,
+    "purifier_load_seconds": 143.32913137599826,
+    "peak_process_rss_kib": 95548984,
+    "cpu_offload": true,
+    "gpu_name": "NVIDIA A800-SXM4-80GB",
+    "peak_gpu_allocated_bytes": 43024769024,
+    "peak_gpu_reserved_bytes": 43639635968
+  },
+  "router": {
+    "decision": "PURIFY",
+    "purify_probability": 0.9924227595329285,
+    "threshold": 0.006440580124035478
+  },
+  "checkpoint_pair": "router-6000_purifier-15000",
+  "weights_manifest_sha256": "fff3027235869fb949b42933baba1cc765343dd6cf3bb79749f08261c71e24f5",
+  "base_model": "FireRedTeam/FireRed-Image-Edit-1.1",
+  "base_config_sha256": {
+    "model_index.json": "5ba11ceee68457ad6a48b899b8c9493e347f4685e11e5eeca952a13f16549e35",
+    "transformer/config.json": "247c94f9b923a7d6b6035ca76d27b556bd0efd1a8c7672f31f037644fcce340e"
+  },
+  "base_weight_hashes_recomputed": false,
+  "base_transformer_blocks": 60,
+  "input": {
+    "file": "assets/demo_01.png",
+    "sha256": "0bd0c0fab59586abf0fc2deb43814417bbaad7fcab40a80d74348d062bce24d4",
+    "resolution": [
+      1440,
+      1920
+    ]
+  },
+  "output": {
+    "sha256": "c675ca26113c6eb9cfaf742456eba967c94a612bcca1bb6554ee5e284ee8d58c",
+    "resolution": [
+      896,
+      1184
+    ]
+  },
+  "implementation_sha256_after_run": {
+    "gate3dgen/router.py": "034558726870514da73b886fbe86bcf0f8d515947d7e6bbe6139d2a1c42d51ea",
+    "gate3dgen/purifier.py": "0d1bb69d8af9a9ed86e4bae34620d5dce0a88f65e2f82ff783c6db93f707d9d7",
+    "gate3dgen/evaluation/infer.py": "bdc71927a8e817992b2825765084f27febfbeaf9ec16b6b477d03f1969e1d05d",
+    "gate3dgen/training/inference.py": "4cf1351008b2e77070e2ecafd6bfaf5302d00c9dc3e320b806ede6004f39dfe2",
+    "gate3dgen/training/checkpoint_state.py": "f36af328190a0f5a4e06e5cc665ed4aa92bd45bd1102172a603217d0517b4cd3",
+    "gate3dgen/training/vendor/train/src/models/qwen_restoration.py": "5c007da66fa098bf6f1472a7cf4cabb43afc3fad4ddc92b68f33a5ba4bce7bc8"
+  },
+  "command": [
+    "python",
+    "-m",
+    "gate3dgen.evaluation.infer",
+    "--manifest",
+    "outputs/review2/profile_cases.jsonl",
+    "--output-dir",
+    "outputs/review2/inference",
+    "--protocol",
+    "routed",
+    "--profile",
+    "--cpu-offload",
+    "--device",
+    "cuda:0",
+    "--seed",
+    "42"
+  ],
+  "base_model_location": "set GATE3DGEN_MODEL_PATH to an external local snapshot",
+  "manifest_row": {
+    "case_id": "demo_01",
+    "asset_id": "demo_01",
+    "degraded": "assets/demo_01.png"
+  },
+  "notes": [
+    "Input is an approved shipped demo, not a quantitative benchmark case.",
+    "Reported memory and timings are measured on one A800 with CPU offload; no minimum-memory claim.",
+    "CUDA context initializes before loading timers; preprocessing, weight transfers and save remain in their corresponding measured phases.",
+    "Full base-model weight hashes and a fresh Conda installation were not verified in this run.",
+    "This was a shared host: other jobs occupied different GPUs and CPU fixture tests ran concurrently. Timings are not an isolated performance benchmark."
+  ]
+}

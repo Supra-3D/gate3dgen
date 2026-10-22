@@ -1,0 +1,11 @@
+name: gate3dgen-lite
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip>=24
+  - numpy>=1.26
+  - scipy>=1.11
+  - pillow>=10
+  - pip:
+      - -e ..
