@@ -14,7 +14,7 @@
   <a href="https://chensjtu.github.io/">Chen Yang</a><sup>2</sup>,<br>
   <a href="https://guanjunwu.github.io/">Guanjun Wu</a><sup>3,2</sup>,
   <a href="https://www.sigs.tsinghua.edu.cn/zk_en/main.htm">Kai Zhang</a><sup>1✉</sup>,
-  <a href="https://jaminfong.cn/">Jiemin Fang</a><sup>2✉‡</sup>,
+  <a href="https://jaminfong.cn/">Jiemin Fang</a><sup>2‡✉</sup>,
   <a href="https://www.qitian1987.com/">Qi Tian</a><sup>2✉</sup>
 </p>
 
