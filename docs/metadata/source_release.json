@@ -22,6 +22,23 @@
     "source_formatting": "Original source whitespace retained; initial git diff --check reports inherited whitespace warnings.",
     "fresh_environment_install": false,
     "gpu_inference": false,
-    "core_download_completion": "Pending user ongoing HF upload; anonymous repository visibility verified."
+    "core_download_completion": "Pending user ongoing HF upload; anonymous repository visibility verified.",
+    "source_inventory": {
+      "original_source_and_example_files": 225,
+      "missing": [],
+      "unexpected_changes": [],
+      "unchanged_files": "SHA-256 compared against original code directory",
+      "deliberate_release_edits": [
+        ".gitignore",
+        "README.md",
+        "WEIGHTS_ORIGINAL_PRECISION.md",
+        "docs/installation.md",
+        "setup/README.md",
+        "setup/setup.sh",
+        "tests/test_evaluation_completeness.py",
+        "tests/test_portability.py"
+      ]
+    },
+    "expanded_tests": "16 passed in tests/test_workflows.py and tests/test_portability.py; tests/test_examples.py collection blocked by missing trimesh."
   }
 }

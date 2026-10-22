@@ -1,0 +1,47 @@
+{
+  "schema_version": "albedo-pair-quality-thresholds-v2",
+  "calibration_status": "demo_full_50_initial",
+  "image": {
+    "all_black_ratio_reject": 0.995,
+    "all_white_ratio_reject": 0.995,
+    "minimum_std": 1.0
+  },
+  "programmatic_effect": {
+    "minimum_mean_abs_diff_review": 1.0,
+    "overexposure_luma_delta_review": 10.0,
+    "underexposure_luma_delta_review": -10.0,
+    "blur_laplacian_ratio_review": 0.92,
+    "white_balance_channel_delta_review": 4.0,
+    "shadow_subject_luma_delta_review": -3.0,
+    "local_color_spill_channel_delta_review": 3.0,
+    "generative_effect_mean_abs_diff_review": 2.0,
+    "foreground_layer_minimum_background_diff": 2.0,
+    "foreground_layer_subject_background_ratio_review": 0.60
+  },
+  "sam": {
+    "score_review": 0.50,
+    "source_gt_iou_reject": 0.30,
+    "source_gt_iou_review": 0.52,
+    "gt_degraded_iou_reject": 0.35,
+    "gt_degraded_iou_review": 0.58,
+    "center_shift_reject": 0.12,
+    "center_shift_review": 0.06,
+    "area_ratio_reject_low": 0.50,
+    "area_ratio_reject_high": 1.80,
+    "area_ratio_review_low": 0.70,
+    "area_ratio_review_high": 1.40,
+    "edge_iou_review": 0.45,
+    "severe_out_of_frame_area_ratio": 1.80
+  },
+  "dino": {
+    "source_gt_reject": 0.50,
+    "source_gt_review": 0.72,
+    "gt_degraded_reject": 0.42,
+    "gt_degraded_review": 0.62
+  },
+  "vlm": {
+    "confidence_reject": 0.80,
+    "confidence_review": 0.72,
+    "occlusion_fraction_diagnostic_only": true
+  }
+}
