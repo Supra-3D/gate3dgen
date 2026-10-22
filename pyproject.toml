@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gate3dgen"
+version = "0.1.0"
+description = "Data, training, and evaluation pipelines for degradation-aware image-to-3D generation"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [{name = "Gate3DGen contributors"}]
+dependencies = [
+  "numpy>=1.26",
+  "Pillow>=10.0",
+  "PyYAML>=6.0",
+  "scipy>=1.11",
+  "scikit-image>=0.22",
+  "tqdm>=4.66",
+  "trimesh>=4.0",
+]
+
+[project.optional-dependencies]
+eval = ["embreex==4.4.0", "rtree>=1.2", "lpips==0.1.4", "timm==1.0.22", "kornia==0.8.2"]
+train = [
+  "accelerate==1.11.0",
+  "datasets==4.4.1",
+  "diffusers==0.36.0",
+  "einops==0.8.2",
+  "imageio>=2.31",
+  "loguru==0.7.3",
+  "lpips==0.1.4",
+  "opencv-python>=4.10",
+  "orjson>=3.10",
+  "peft==0.18.0",
+  "safetensors>=0.6",
+  "tensorboard>=2.18",
+  "torch>=2.4",
+  "torchdata>=0.10",
+  "torchvision>=0.19",
+  "transformers==4.57.1",
+]
+audit = ["requests>=2.31"]
+dev = ["pytest>=8.0", "ruff>=0.8"]
+
+[project.scripts]
+gate3dgen-demo = "gate3dgen.demo:main"
+gate3dgen-data = "gate3dgen.data.pair_generation.pipeline:main"
+gate3dgen-audit = "gate3dgen.data.quality_audit.cli:main"
+gate3dgen-train = "gate3dgen.training.cli:main"
+gate3dgen-train-router = "gate3dgen.training.router_tools.launch:main"
+gate3dgen-prepare = "gate3dgen.data.prepare:main"
+gate3dgen-eval-router = "gate3dgen.evaluation.router:main"
+gate3dgen-eval-infer = "gate3dgen.evaluation.infer:main"
+gate3dgen-eval-2d = "gate3dgen.evaluation.metrics2d:main"
+gate3dgen-eval-3d = "gate3dgen.evaluation.metrics3d_official:main"
+gate3dgen-eval-pbr = "gate3dgen.evaluation.pbr_metrics:main"
+gate3dgen-report = "gate3dgen.evaluation.report:main"
+
+[tool.setuptools.packages.find]
+include = ["gate3dgen*"]
+
+[tool.setuptools.package-data]
+"gate3dgen.data.quality_audit" = ["*.json"]
+"gate3dgen.resources" = ["prompts/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q -p no:cacheprovider"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120

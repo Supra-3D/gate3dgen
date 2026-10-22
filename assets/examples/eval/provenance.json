@@ -1,0 +1,85 @@
+{
+  "case_id": "demo_case_01", "source_case_id": "dtcplus_5e236feb89f71086022f__dark",
+  "asset_id": "demo_eval_asset_01", "source_asset_id": "dtcplus_5e236feb89f71086022f",
+  "source_selection": "case05_pixal3d_all_8s / 05_paper_dtcplus_5e236feb89f71086022f__dark",
+  "historical_restoration_run": "gate_B_mmdit_cp15000_dtcplus730_restoration_source_v1",
+  "historical_geometry_run": "gate_B_mmdit_cp15000_dtcplus730_all_conditions_3d32_v1",
+  "restoration_step": 1,
+  "purifier_checkpoint_step": 15000,
+  "router_decision": "Not bundled; no fresh router decision is claimed",
+  "files": [
+    {
+      "path": "demo_case_01/gt.png",
+      "sha256": "dd049d45dafe5d799e0be9793362e3509a14d897084e95c97c9ba5dd4854e752",
+      "bytes": 732632
+    },
+    {
+      "path": "demo_case_01/degraded.png",
+      "sha256": "8f526e6f2d6af3913305d60b6df0ea17209f9a5a7a07f77502f86b87b7677679",
+      "bytes": 758619
+    },
+    {
+      "path": "demo_case_01/restored.png",
+      "sha256": "cb99f7292d6131be1141dff8b49a489793dd329c4f8966bdbb247ad78071fec4",
+      "bytes": 1068068
+    },
+    {
+      "path": "demo_case_01/gt.glb",
+      "sha256": "5e236feb89f71086022ff9d8b3e0a38b0b6900d3a6dedbf8b0c7a8e94266da87",
+      "bytes": 73759224
+    },
+    {
+      "path": "generation/pixal3d/demo_case_01/degraded.glb",
+      "sha256": "53073c0b0b6f65c11f2d9a36cfc5e96534060f74b1aeb3723d69b296920262d0",
+      "bytes": 36737536
+    },
+    {
+      "path": "generation/pixal3d/demo_case_01/restored_s01.glb",
+      "sha256": "858c99dd780f9ef5a6f3ecd3d95f0179966d743fd6951375bf5537eac09c78ab",
+      "bytes": 37214644
+    }
+  ],
+  "geometry_reference": "Original DTC model; the PPT Pixal3D gt.glb is a generated oracle and is NOT used as GT",
+  "degradation": {
+    "factors": [
+      "motion_blur",
+      "uneven_lighting"
+    ],
+    "parameters": {
+      "motion_blur": {
+        "length": 25,
+        "angle_degrees": 60
+      },
+      "uneven_lighting": {
+        "world_strength_scale": 1.4432
+      }
+    },
+    "seed": 10323091073042879758,
+    "sir2_used": false,
+    "flare7k_used": false
+  },
+  "environment": {
+    "name": "hansaplatz_4k.exr",
+    "sha256": "bca5e1ec648f3643e8acd946e20d4569bd23282939c3bb884cf83817960d7619",
+    "scene_category": "night",
+    "source_azimuth_deg": 58.401282444281264,
+    "source_elevation_deg": 20.731888846299636,
+    "spherical_mean_luminance": 0.9629181575553587,
+    "world_strength": 1.5577647884511558
+  },
+  "camera": {
+    "source_view": "view_05",
+    "azimuth_deg": 300,
+    "elevation_deg": 20,
+    "evaluation_views": 4
+  },
+  "excluded": [
+    "videos",
+    "rendered frames",
+    "baseline-method outputs",
+    "generated clean-oracle mesh",
+    "TRELLIS.2 meshes",
+    "HDRI binary",
+    "private benchmark inventory"
+  ]
+}

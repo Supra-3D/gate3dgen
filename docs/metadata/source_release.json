@@ -1,0 +1,27 @@
+{
+  "source_repository": "https://github.com/Supra-3D/gate3dgen",
+  "weight_repository": "https://huggingface.co/hllee0615/gate3dgen",
+  "scope": "Source-only GitHub release; original checkpoint directory and ongoing HF upload untouched.",
+  "excluded": [
+    "checkpoints/",
+    "Gate3DGen-hf-upload/",
+    "model binaries (*.safetensors, *.bin, *.pt, *.pth, *.ckpt)",
+    "caches and macOS metadata"
+  ],
+  "examples": "Existing licensed sample images and GLB meshes retained; they are examples, not model weights.",
+  "validation": {
+    "targeted_tests": "34 passed, 1 skipped (trimesh unavailable in validation Python)",
+    "test_files": [
+      "tests/test_download_weights.py",
+      "tests/test_release_workflows.py",
+      "tests/test_evaluation_completeness.py"
+    ],
+    "shell_syntax": "bash -n setup/setup.sh passed",
+    "new_downloader": "Dry-run is read-only; invalid destinations rejected; incomplete downloads fail readiness.",
+    "git_index": "No model binary, checkpoint payload or macOS metadata staged.",
+    "source_formatting": "Original source whitespace retained; initial git diff --check reports inherited whitespace warnings.",
+    "fresh_environment_install": false,
+    "gpu_inference": false,
+    "core_download_completion": "Pending user ongoing HF upload; anonymous repository visibility verified."
+  }
+}

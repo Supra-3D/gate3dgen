@@ -1,0 +1,43 @@
+{
+  "pair_id": "430d32995bae83684f6f7fd89041d2c3",
+  "sha256": "demo_asset_01", "source_asset_id": "0a648b5b6efa423ab84c13dc77012953", "parameter_sampling_asset_id": "0a648b5b6efa423ab84c13dc77012953",
+  "task_id": "glass_reflection_heavy",
+  "task_version": "7.0.0-real-scene-compact",
+  "view_id": "albedo/000",
+  "view_slot": 2,
+  "primary_coarse": "character",
+  "primary_fine": "figurine_statue",
+  "method": "generative",
+  "model": "firered-image-edit-1.1",
+  "dimensions": [
+    1024,
+    1024
+  ],
+  "gt_prompt": "Create the exact same object as a clean reference photograph in the specified scene. Scene specification (scene_glass_display): A natural shop, cabinet or museum display photographed through a clean foreground glass pane. Foreground elements: . Support: . Midground elements: . Background elements: display interior, shelf or cabinet, visible frame and natural depth. Light source: . Camera context: static frontal camera, level glass plane, complete object visible. GT lighting: even neutral illumination on the object through clean glass with no reflection. GT exclusions: no empty studio, no reflection, no smudges, no dust, no scratches, no haze, no crop.",
+  "degradation_prompt": "Add a strong, clearly visible reflection of a window frame with indoor lamps on the foreground glass, partially obscuring the object. The input GT already contains the complete scene. Keep its background, support, camera, framing and all unaffected pixels unchanged. Do not add, remove, replace or redesign any background element. Apply only the named degradation. Use the input image as the exact scene reference. Preserve the same camera viewpoint, framing, object silhouette, object position, support, background layout, background details and lighting context. Add only the requested degradation. Do not reconstruct, redesign, recompose or replace the scene. Use the GT scene unchanged. Preserve object geometry, camera, framing, support, background and unaffected pixels. Add only the specified degradation.",
+  "degradation_strategy": "gt_then_local_api_edit",
+  "degradation_type": "glass_reflection",
+  "preserve_scope": "background_and_geometry",
+  "affected_scope": "foreground_layer",
+  "global_seed": 42,
+  "pair_seed": 2260018554963173041,
+  "accepted_attempt_seed": 501805073084643847,
+  "cfg_scale": 4.0,
+  "steps": 40,
+  "parameters": {},
+  "basic_audit": {
+    "degraded_sha256": "1489d59f250f9ed6b3205796917296885bb2e801785bc910e76525ac10623c8b",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "gt_sha256": "d7022f00d55fff8ec29169dd1a4b851f7180441ce6c123a465ec1ee027ee9e9b",
+    "status": "pass"
+  },
+  "source_relative_path": "renders_crossview/demo_asset_01/albedo/000.png",
+  "gt_relative_path": "pairs/430d32995bae83684f6f7fd89041d2c3/gt.png",
+  "degraded_relative_path": "pairs/430d32995bae83684f6f7fd89041d2c3/degraded.png",
+  "quality_status": "not_audited",
+  "status": "success",
+  "provenance": "Historical FireRed pair from the paper Part-A figure pack; full VLM audit records are not bundled"
+}

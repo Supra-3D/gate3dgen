@@ -1,0 +1,18 @@
+{
+  "tested_at_utc": "2026-10-12T03:05:29.870223+00:00",
+  "scope": "Existing maintainer Conda environment; dependency checks and entry-point fixtures, not a newly created full Conda environment",
+  "python": "3.12.13",
+  "direct_dependency_baseline": "setup/constraints-host.txt",
+  "dependency_resolution_dry_run": "passed; only the editable gate3dgen package would be installed",
+  "environment_checks": {"expected": 37, "passed": 37, "failed": 0},
+  "cuda": {"available": true, "torch_cuda": "12.8", "device": "NVIDIA A800-SXM4-80GB"},
+  "blender": {
+    "version": "3.0.1",
+    "official_archive_sha256": "4f17aa3d10ed6e13e6a75479f1a506f58998b8c007812a0886d9254c953e2ae5",
+    "numpy_runtime_verified": true,
+    "color_management_ok": true,
+    "ocio_config_sha256": "5c1023b6f0fa652fdf1738cd3114a0503d102ba854dc4eb74c786da174cb39ec"
+  },
+  "external_requirements": ["NVIDIA driver", "authorized base/VLM/RMBG weights", "optional DINO/SAM installations", "Pixal3D or TRELLIS.2 environment"],
+  "limits": ["Direct dependency constraints are not a complete transitive lockfile", "New full Conda installation/download was not rerun in this check", "Complete purifier checkpoint save/resume remains unverified on this host"]
+}
