@@ -133,5 +133,125 @@
       "anonymous_http_status": 206,
       "probe_bytes_read": 1
     }
+  ],
+  "optional_models_metadata_only": [
+    {
+      "repo_id": "Qwen/Qwen3-VL-32B-Instruct",
+      "url": "https://huggingface.co/Qwen/Qwen3-VL-32B-Instruct",
+      "scope": "optional workflow, not core inference",
+      "private": false,
+      "gated": false,
+      "revision": "0cfaf48183f594c314753d30a4c4974bc75f3ccb",
+      "metadata_host": "https://huggingface.co"
+    },
+    {
+      "repo_id": "Qwen/Qwen-Image-Edit-2511",
+      "url": "https://huggingface.co/Qwen/Qwen-Image-Edit-2511",
+      "scope": "optional workflow, not core inference",
+      "private": false,
+      "gated": false,
+      "revision": "6f3ccc0b56e431dc6a0c2b2039706d7d26f22cb9",
+      "metadata_host": "https://huggingface.co"
+    },
+    {
+      "repo_id": "stepfun-ai/Step1X-Edit-v1p2",
+      "url": "https://huggingface.co/stepfun-ai/Step1X-Edit-v1p2",
+      "scope": "optional workflow, not core inference",
+      "private": false,
+      "gated": false,
+      "revision": "ca85b97fd19f2235dc0d6fd3633d1319f169e149",
+      "metadata_host": "https://huggingface.co"
+    },
+    {
+      "repo_id": "OmniGen2/OmniGen2",
+      "url": "https://huggingface.co/OmniGen2/OmniGen2",
+      "scope": "optional workflow, not core inference",
+      "private": false,
+      "gated": false,
+      "revision": "df5dca8a981d74e6c3af214c145f5c735fe72367",
+      "metadata_host": "https://huggingface.co"
+    },
+    {
+      "repo_id": "black-forest-labs/FLUX.1-Kontext-dev",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev",
+      "scope": "optional workflow, not core inference",
+      "private": false,
+      "gated": "auto",
+      "revision": "24e9dedc4ef646698dc8eb4e18ae2cec3c9fea0d",
+      "metadata_host": "https://huggingface.co"
+    },
+    {
+      "repo_id": "microsoft/Mage-Flow-Edit",
+      "url": "https://huggingface.co/microsoft/Mage-Flow-Edit",
+      "scope": "optional workflow, not core inference",
+      "metadata_http_status": 401
+    },
+    {
+      "repo_id": "microsoft/TRELLIS-image-large",
+      "url": "https://huggingface.co/microsoft/TRELLIS-image-large",
+      "scope": "optional workflow, not core inference",
+      "private": false,
+      "gated": false,
+      "revision": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "metadata_host": "https://huggingface.co"
+    },
+    {
+      "repo_id": "facebook/dinov2-with-registers-large",
+      "url": "https://huggingface.co/facebook/dinov2-with-registers-large",
+      "scope": "optional workflow, not core inference",
+      "private": false,
+      "gated": false,
+      "revision": "e4c89a4e05589de9b3e188688a303d0f3c04d0f3",
+      "metadata_host": "https://huggingface.co"
+    },
+    {
+      "repo_id": "facebook/dinov2-base",
+      "url": "https://huggingface.co/facebook/dinov2-base",
+      "scope": "optional workflow, not core inference",
+      "private": false,
+      "gated": false,
+      "revision": "f9e44c814b77203eaa57a6bdbbd535f21ede1415",
+      "metadata_host": "https://huggingface.co"
+    },
+    {
+      "repo_id": "facebook/sam2.1-hiera-large",
+      "url": "https://huggingface.co/facebook/sam2.1-hiera-large",
+      "scope": "optional workflow, not core inference",
+      "private": false,
+      "gated": false,
+      "revision": "665f8e2ad61cf5f53d65644ff27c8ee525124610",
+      "metadata_host": "https://huggingface.co"
+    },
+    {
+      "repo_id": "FireRedTeam/FireRed-Image-Edit",
+      "url": "https://huggingface.co/FireRedTeam/FireRed-Image-Edit",
+      "scope": "optional workflow, not core inference",
+      "metadata_http_status": 401
+    },
+    {
+      "repo_id": "FireRedTeam/FireRed-Image-Edit-1.0",
+      "url": "https://huggingface.co/FireRedTeam/FireRed-Image-Edit-1.0",
+      "scope": "optional workflow, not core inference",
+      "private": false,
+      "gated": false,
+      "revision": "0aea9d520c801c9f4b691cc92f736a7a8628e6a2",
+      "metadata_host": "https://huggingface.co"
+    },
+    {
+      "repo_id": "facebook/sam2.1-hiera-small",
+      "url": "https://huggingface.co/facebook/sam2.1-hiera-small",
+      "scope": "optional workflow, not core inference",
+      "private": false,
+      "gated": false,
+      "revision": "ee5bba1d82bb8749febdf90f45e84b687142ba03",
+      "metadata_host": "https://huggingface.co"
+    }
+  ],
+  "non_hf_weights": [
+    {
+      "component": "NAF",
+      "url": "https://github.com/valeoai/NAF/releases/download/model/naf_release.pth",
+      "verification": "GitHub release asset exists; size 2664431 bytes; tensor content not downloaded"
+    }
   ]
 }
