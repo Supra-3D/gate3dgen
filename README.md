@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://supra-3d.github.io/gate3dgen/"><img src="https://img.shields.io/badge/Project-Page-blue" alt="Project page"></a>
-  <a href="docs/Gate3DGen.pdf"><img src="https://img.shields.io/badge/Paper-PDF-b31b1b" alt="Paper PDF"></a>
+  <a href=""><img src="https://img.shields.io/badge/Paper-PDF-b31b1b" alt="Paper PDF"></a>
   <a href="https://huggingface.co/hllee0615/gate3dgen"><img src="https://img.shields.io/badge/Models-Hugging_Face-yellow" alt="Model weights"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0%20%2B%20third--party-green" alt="Source license"></a>
 </p>
@@ -40,7 +40,7 @@ classified as clean, improving downstream 3D generation without retraining the
 - **Frozen 3D generation.** Use the resulting image with a downstream 3D generator.
 
 Learn more on the [project page](https://supra-3d.github.io/gate3dgen/), read the
-[paper](docs/Gate3DGen.pdf), or download the [model weights](https://huggingface.co/hllee0615/gate3dgen).
+[paper](), or download the [model weights](https://huggingface.co/hllee0615/gate3dgen).
 
 ## 🛠️ Setup
 
