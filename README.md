@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://supra-3d.github.io/gate3dgen/"><img src="https://img.shields.io/badge/Project-Page-blue" alt="Project page"></a>
-  <a href="https://github.com/Supra-3D/gate3dgen"><img src="https://img.shields.io/badge/Paper-PDF-b31b1b" alt="Paper PDF"></a>
+  <a href="https://arxiv.org/abs/2610.31649"><img src="https://img.shields.io/badge/Paper-arXiv-b31b1b" alt="Paper on arXiv"></a>
   <a href="https://huggingface.co/hllee0615/gate3dgen"><img src="https://img.shields.io/badge/Models-Hugging_Face-yellow" alt="Model weights"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0%20%2B%20third--party-green" alt="Source license"></a>
 </p>
@@ -40,7 +40,7 @@ classified as clean, improving downstream 3D generation without retraining the
 - **Frozen 3D generation.** Use the resulting image with a downstream 3D generator.
 
 Learn more on the [project page](https://supra-3d.github.io/gate3dgen/), read the
-[paper](https://github.com/Supra-3D/gate3dgen), or download the [model weights](https://huggingface.co/hllee0615/gate3dgen).
+[paper](https://arxiv.org/abs/2610.31649), or download the [model weights](https://huggingface.co/hllee0615/gate3dgen).
 
 ## Abstract
 
@@ -107,3 +107,17 @@ See [evaluation](docs/evaluation.md) for 2D, geometry and texture metrics, and n
 
 Original code is [Apache-2.0](LICENSE). We thank FireRed, Qwen and Pixal3D.
 Models and example assets retain their [third-party licenses](THIRD_PARTY.md).
+
+## Citation
+
+```bibtex
+@misc{li2026gate3dgenpreprocessingmodelselectively,
+  title         = {Gate3DGen: A Pre-processing Model that Selectively Purifies Real-World Images for 3D Generation},
+  author        = {Xiaolin Li and Zihao Huang and Fanpeng Meng and Chen Yang and Guanjun Wu and Kai Zhang and Jiemin Fang and Qi Tian},
+  year          = {2026},
+  eprint        = {2610.31649},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2610.31649}
+}
+```
