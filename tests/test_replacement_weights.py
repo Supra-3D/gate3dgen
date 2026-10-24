@@ -61,6 +61,8 @@ class DeltaTests(unittest.TestCase):
             materialize(base, root / 'delta', root / 'gateb', 'gateb')
             with IndexedState(root / 'gateb', 'model.safetensors.index.json') as state:
                 self.assertTrue(torch.equal(state['b'], target['b']))
+            index = json.loads((root / 'gateb/model.safetensors.index.json').read_text())
+            self.assertEqual(index['metadata'], {'total_size': 16})
 
 
 if __name__ == '__main__':
