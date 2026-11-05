@@ -61,6 +61,16 @@ class DeltaTests(unittest.TestCase):
             materialize(base, root / 'delta', root / 'gateb', 'gateb')
             with IndexedState(root / 'gateb', 'model.safetensors.index.json') as state:
                 self.assertTrue(torch.equal(state['b'], target['b']))
+            index = json.loads((root / 'gateb/model.safetensors.index.json').read_text())
+            self.assertEqual(index['metadata'], {'total_size': 16})
+            from transformers.utils.hub import get_checkpoint_shard_files
+            shards, metadata = get_checkpoint_shard_files(
+                str(root / 'gateb'), str(root / 'gateb/model.safetensors.index.json'))
+            self.assertEqual(metadata['total_size'], 16)
+            self.assertEqual(metadata['weight_map'], index['weight_map'])
+            self.assertEqual(set(metadata['all_checkpoint_keys']), set(target))
+            self.assertEqual(set(shards), {str(root / 'gateb' / name)
+                                           for name in index['weight_map'].values()})
 
 
 if __name__ == '__main__':

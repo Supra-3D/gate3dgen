@@ -158,8 +158,9 @@ def materialize(base, package, output, kind):
         torch.save(state, output / 'pytorch_model_fsdp.bin')
     else:
         pending, size, mapping = {}, 0, {}
-        part = 0
+        part = total = 0
         for key, tensor in verify_and_iter(base, package):
+            total += tensor.numel() * tensor.element_size()
             if size and size + tensor.numel() * tensor.element_size() > 4 * 1024**3:
                 name = f'model-part-{part:05d}.safetensors'
                 save_file(pending, output / name, metadata={'format': 'pt'})
@@ -171,7 +172,9 @@ def materialize(base, package, output, kind):
             name = f'model-part-{part:05d}.safetensors'
             save_file(pending, output / name, metadata={'format': 'pt'})
             mapping.update({key: name for key in pending})
-        (output / 'model.safetensors.index.json').write_text(json.dumps({'weight_map': mapping}, indent=2) + '\n')
+        # transformers' sharded loader reads index['metadata'] unconditionally.
+        index = {'metadata': {'total_size': total}, 'weight_map': mapping}
+        (output / 'model.safetensors.index.json').write_text(json.dumps(index, indent=2) + '\n')
     metadata = json.loads((Path(package) / 'manifest.json').read_text())
     marker.write_text(json.dumps(dict(all_tensors_bit_identical=True,
                                      reference=metadata.get('precision_reference', 'manifest target tensors'),
